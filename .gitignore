@@ -1,0 +1,23 @@
+# files project
+.DS_Store
+/nbproject
+
+*.log
+error_log
+
+
+# no follow file of configuration local
+/src/blog
+.htaccess
+
+#
+/src/inc.core.php
+/src/validateUser.php
+/src/aplication/inc.config.php
+
+/src/aplication/utilities/Libs.php
+# files
+/src/aplication/utilities/cache/
+/src/aplication/utilities/upload_img/
+
+/docs/

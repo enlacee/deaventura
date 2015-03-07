@@ -1,0 +1,40 @@
+/* CSS Document */
+#pagina{
+	font-family: 'Arial', sans-serif;
+}
+
+.gradient {
+   filter: none;
+}
+
+
+
+.fileinput-button{
+	margin: 2px 10px 8px 10px;
+}
+
+
+/*HEADER*/
+
+#cuerpo{
+	background: #EBEBEB;
+}
+
+#header_b{
+	background: #ebebeb;
+}
+
+/*--------------------------*/
+#org{width: 181px;}
+#agencia{width:213px;}
+
+.panel_desc2{
+	border: 1px solid #CECECE;
+}
+.panel_desc2 h1{
+	font-size: 23px;
+	line-height: 30px;
+}
+.panel_desc2 h2{
+	font-size: 17px;
+}

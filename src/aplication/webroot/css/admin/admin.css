@@ -1,0 +1,471 @@
+/* CSS Document */
+
+body, form, ul, li, td, th, p{ margin:0; padding:0; }
+body{ 
+	font-size:70%;
+	font-family:Verdana, Geneva, sans-serif; 
+	background:#FCFCFC
+}
+
+input.text:focus,textarea:focus, input.ui-autocomplete-input:focus
+{
+	background:#FFFFC6
+}
+.clear{clear: both}
+a{ text-decoration:none; }
+img{ border:0 }
+
+input[readonly]{background: rgb(231, 231, 231);border: 1px solid rgb(221, 221, 221);}
+
+/*---- Estructura ----*/
+#dw-window{
+	width:100%;
+	height:100%;
+	background:url(../../imgs/admin/bg_menu.jpg) repeat-x;
+}
+#dw-admin{
+	width:890px;
+	margin:0 auto;
+}
+/*----- Menu -----*/
+#dw-menu{
+	width:100%;
+	height:36px;
+}
+#dw-menu ul.dropdown {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	list-style-image: none;
+	list-style-type: none;
+	position: relative;
+	z-index:597;
+}
+#dw-menu ul.dropdown a {
+	text-decoration: none;
+	color: #FFF;
+	font-weight:bold
+}
+#dw-menu ul.dropdown ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-image: none;
+	list-style-type: none;
+	position: absolute;
+	visibility: hidden;
+	z-index: 598;
+	left: 0px;
+	top: 100%;
+	width:200px;
+	background:url(../../imgs/admin/bg_submenu.jpg) repeat;
+	border-bottom:1px solid #B6B6B6;
+}
+#dw-menu ul.dropdown>li {
+	float: left;
+	list-style-image: none;
+	background:url(../../imgs/admin/space.jpg) no-repeat left top;
+	padding:9px 25px 0 25px;
+	display:block;
+	height:27px;
+}
+#dw-menu ul.dropdown>li.last{
+	width:2px;padding-left:0px; padding-right:0px
+}
+#dw-menu ul.dropdown ul li{
+	display:block;
+}
+#dw-menu ul.dropdown ul li span{
+	display:block;
+    padding: 12px 0 10px 20px;
+	font-weight:bold
+}
+#dw-menu ul.dropdown li:hover > ul {
+	visibility: visible;
+}
+#dw-menu ul.dropdown ul ul {
+	left: 99%;
+	top: 1px;
+}
+#dw-menu ul.dropdown li:hover {
+	background:url(../../imgs/admin/bg_hover.jpg) repeat-x;
+	position: relative;
+}
+#dw-menu ul.dropdown ul li:hover {
+	background:#FFED55;
+	border-bottom:1px solid #DBDBDB;
+	border-top:1px solid #DBDBDB;	
+}
+#dw-menu ul.dropdown ul a{ 
+	/*background: url(../../imgs/admin/icons.png) no-repeat 4px 14px;*/
+	padding: 12px 0px 0px 23px;
+	display: block;
+	height: 26px;
+}
+#dw-menu ul.dropdown ul a.config{
+	background-position:0 1px;
+}
+#dw-menu ul.dropdown ul a.users{
+	background-position:0 -32px;
+}
+#dw-menu ul.dropdown li:hover a	{
+	text-decoration: none;
+	color: #1e8dd3;
+}
+#dw-menu .actions{
+	float:right;
+	padding-top:10px
+}
+#dw-menu .actions a{
+	color:#FFF;
+	background:url(../../imgs/admin/icons.png) no-repeat;
+	display:block;
+	float:left;
+	padding-left:18px;
+	padding-bottom:2px;
+	padding-top:1px;
+	margin:0 6px
+}
+#dw-menu .actions a.user{
+	background-position:0 -32px;
+}
+#dw-menu .actions a.salir{
+	background-position:0 -100px;
+	font-weight:bold
+}
+#dw-menu .develoweb{
+	position:absolute; right:6px; top:2px;
+	opacity:0.7;
+}
+/*-------- Pagina -----*/
+#dw-page{
+	font:normal 11px Verdana, Geneva, sans-serif;
+	color:#444444;
+	margin-top:30px
+}
+#dw-page h1 {
+	font-size:20px;
+	font-weight:normal
+}
+#dw-page .operations{
+	float:right;
+	display:block;
+	overflow:hidden;
+}
+#dw-page .operations a{
+	display:block;
+	height:27px;
+	background:url(../../imgs/admin/button-left.jpg) no-repeat left top;
+	overflow:hidden;
+	font-size:11px;
+	padding-left:16px;
+	color:#1e8dd3;
+	font-weight:bold;
+	float:left;
+	margin:0 6px
+}
+#dw-page .operations a em:hover{
+	text-decoration:underline
+}
+#dw-page .operations a em{
+	font-style:normal;
+	display:block;
+	padding-top:5px;
+	float:left
+}
+#dw-page .operations a span{
+	display:block;
+	float:right;
+	background:url(../../imgs/admin/button-right.jpg) no-repeat;
+	width:16px;
+	height:27px
+}
+
+/*------- Navegador ----*/
+#nav{
+	width:auto;
+	color:#777777;
+	padding:10px 0
+}
+#nav a{
+	color:#1e8dd3
+}
+/*------ Cuerpo -----*/
+
+#dw-cuerpo{
+	margin-top:20px	
+}
+#dw-cuerpo .listado{
+	width:890px	
+}
+#dw-cuerpo .head{
+	color:#1e8dd3;
+	background:url(../../imgs/admin/bg_head.jpg) repeat-x
+}
+#dw-cuerpo .head th{
+	padding:0 3px 8px 5px
+}
+#dw-cuerpo .row:hover{
+	background:#FEF4D8
+}
+#dw-cuerpo .row td{
+	padding:7px 0 7px 15px
+}
+#dw-cuerpo .odl{
+	background:#EBF7FC
+}
+#content-area{
+	padding-top:10px
+}
+
+/*------- Listado Order ----*/
+#listadoul{ list-style:none}
+#listadoul li{ overflow:hidden; display:block; padding:4px}
+#listadoul li.edit_dep{background: rgb(229, 237, 240);color: #043C74;}
+/**/
+#listadoul li:hover{ background-color: #FEF4D8}
+#listadoul .fila1{background:#EBF7FC}
+#listadoul .fila2:hover{background-color:#FEF4D8}
+#listadoul .options{float:right; width:143px; padding:1px 0; text-align:center}
+#listadoul .options2{float:right; padding:1px 0; text-align:center;/*width: 30px;*/}
+#listadoul .data{float:left; padding-left:2px}
+#listadoul .move{ cursor:move}
+#listadoul .cant_busq{float: right;width: 20px;text-align: center;margin-top: 3px;margin-right: 223px;}
+
+
+/*--------------------------------------------
+---------------Formularios ------------------
+---------------------------------------------*/
+
+.tag #form{padding:0}
+.tag #form form{margin: 0}
+.tag #form .button-actions{margin-top: 10px;}
+
+#form {
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border:1px solid #EBEBEB;
+	padding:0 30px 30px 30px;
+	margin-top:20px
+}
+
+#form form{
+	margin-top:30px
+}
+#form legend{
+	color:#1e8dd3;
+	font:bold 11px Verdana, Geneva, sans-serif;
+}
+#form ul{ list-style:none; padding:1px 0 15px 0 }
+#form ul label{
+	width:145px;
+	display:block;
+	float:left;
+	margin-top:5px;
+	text-align:right;
+	margin-right:10px;
+}
+#form ul li{
+	margin-top:10px;
+}
+#form textarea{
+	overflow:auto;
+	font:normal 12px Arial, Helvetica, sans-serif
+}
+#form .text{ 
+	padding:5px;
+	font:normal 12px Arial, Helvetica, sans-serif
+}
+#form select{
+	font:normal 12px Arial, Helvetica, sans-serif
+}
+#form .button-actions{
+	float:right
+}
+#form .button-actions input{
+	margin:0 10px 0 0
+}
+
+
+/*--------- Multiselect -----------*/
+#tags{
+    border: 1px solid rgb(223, 216, 216);
+    padding: 14px 30px;
+}
+    #tags legend{ color: #1e8dd3;  font: bold 11px Verdana, Geneva, sans-serif;}
+    #tags #panel_tags{width: 327px; height: 173px; overflow-y: scroll; padding-right: 7px; float: left;}
+    #tags #panel_tags ul li{
+        list-style: none;
+        padding: 3px 3px;
+        background: rgb(235, 235, 235);
+        margin-bottom: 3px;
+        position: relative;
+    }
+    #tags #panel_tags ul li .icadd{
+        width: 11px;
+        height: 19px;
+        padding: 0px 10px;
+        background: rgb(206, 206, 206);
+        position: absolute;
+        right: 8px;
+        top: 0px;
+        font-size: 14px;
+        font-weight: bold;
+        color: rgb(121, 121, 121);
+        cursor: pointer;
+    }
+    #tags #loader{float: left;width: 41px;height: 131px;margin-left: 19px;}
+    #tags #loader img{margin-top: 50px;display: none}
+    #tags #tags_list{float: right; width: 421px;}
+    #tags #tags_list p{
+        position: relative;
+        padding: 2px 4px;
+        display: inline-block;
+        background: rgb(224, 224, 224);
+        margin: 0 22px 7px 0;
+        border: 1px solid rgb(201, 201, 201);
+    }
+    #tags #tags_list h3{margin: 0 0 9px 0;}
+    #tags #tags_list p em{
+        position: absolute;
+        top: -1px;
+        right: -18px;
+        padding: 3px 5px 3px 5px;
+        background: rgb(177, 60, 4);
+        color: #FFF;
+        cursor: pointer;
+    }
+
+
+/*SAVE NOW*/
+.save_event{
+    cursor: pointer;
+    margin: 0 0 0 2px;
+}
+.edit_information{
+    padding: 5px 5px;
+    background: rgb(207, 230, 255);
+    margin: 8px 0;
+}
+.nom_edit,.save_event,.img_load{display: none}
+
+/*--------- Mensajes ----------*/
+p.notification {
+    border: 1px solid;
+    border-radius: 3px 3px 3px 3px;
+    display: block;
+    padding: 7px 7px 7px 30px;
+    position: relative;
+    width: 95%;
+}
+.success {
+    background:url(../../imgs/admin/tick.png) no-repeat 7px 8px #D5FFCE;
+    border-color: #9ADF8F !important;
+    color: #556652;
+}
+
+/*--------- Datos Usuario ---------*/
+#datos_usuario{
+	list-style:none
+}
+#datos_usuario label{
+	width:70px;
+	float:left;
+	text-align:right;
+	margin-right:14px;
+	font-weight:bold;
+	color:#1E8DD3
+}
+#datos_usuario li{
+	display:block;
+	overflow:hidden;
+	border-bottom:1px dotted #E4E4E4;
+	padding:16px 4px 4px 4px
+}
+#datos_usuario li:hover{
+	border-bottom:1px solid #999;
+	background:#F7F7F7
+}
+
+/*--------- Tooltip ----------*/
+.tipsy { padding: 5px; font-size: 10px; position: absolute; z-index: 100000; }
+.tipsy-inner { padding: 5px 8px 4px 8px; background-color: black; color: white; max-width: 200px; text-align: center; }
+.tipsy-inner { border-radius: 3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
+.tipsy-arrow { position: absolute; background: url('../../imgs/icons/tipsy.gif') no-repeat top left; width: 9px; height: 5px; }
+.tipsy-n .tipsy-arrow { top: 0; left: 50%; margin-left: -4px; }
+.tipsy-nw .tipsy-arrow { top: 0; left: 10px; }
+.tipsy-ne .tipsy-arrow { top: 0; right: 10px; }
+.tipsy-s .tipsy-arrow { bottom: 0; left: 50%; margin-left: -4px; background-position: bottom left; }
+.tipsy-sw .tipsy-arrow { bottom: 0; left: 10px; background-position: bottom left; }
+.tipsy-se .tipsy-arrow { bottom: 0; right: 10px; background-position: bottom left; }
+.tipsy-e .tipsy-arrow { top: 50%; margin-top: -4px; right: 0; width: 5px; height: 9px; background-position: top right; }
+.tipsy-w .tipsy-arrow { top: 50%; margin-top: -4px; left: 0; width: 5px; height: 9px; }
+
+
+/*-------- welcome --------*/
+#welcome{
+	list-style:none;
+	padding-top:20px
+}
+#welcome li{
+	width:74px;
+	height:79px;
+	display:block;
+	float:left;
+	margin:10px 50px
+}
+#welcome li a{
+	position:relative;
+	display:block;
+	height:79px;
+}
+#welcome li a img{ position:relative}
+#welcome li span{
+	display:block;
+	color:#444444;
+	bottom:0;
+	display:block;
+	text-align:center;
+	width:100%
+}
+.fondo_saldo{ background:#FAFCB4;}
+
+
+/*------- rutas ---------*/
+#rutas_top{}
+#rutas_top > li{
+    width: 60px;
+    height: 60px;
+    background: #E0D1B7;
+    border: 1px solid rgb(175, 147, 99);
+    color: rgb(95, 92, 74);
+    padding: 5px;
+    float: left;
+    list-style: none;
+    margin: 0px 8px 0 0;
+    text-align: center;
+    cursor: pointer;
+}
+#rutas_top > li img{margin: 7px;}
+#rutas_top > li.active{
+    outline: 2px solid rgb(192, 182, 173);
+}
+
+
+#rutas_admin > li:first-child {display: block}
+#rutas_admin > li{list-style: none; display: none}
+#rutas_admin > li .data{float: right}
+#rutas_admin > li .data_left{
+    width: 250px;
+    float: left;
+    margin: 0px 8px 13px 0;
+}
+#rutas_admin > li .data_left h4{
+    float: left;
+    margin: 0;
+    font-size: 13px;
+}
+#rutas_admin > li .data_left .tooltip{float: right}
+#rutas_admin > li .data_left .options{height: 30px;text-align: left;}
+
+
