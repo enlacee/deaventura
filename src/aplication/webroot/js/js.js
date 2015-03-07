@@ -1708,7 +1708,7 @@ $(window).scroll(function() {
 function login() {
 
     LodingAnimate();
-
+/*
     FB.login(function(response) {
 
         if (response.status == 'connected') {
@@ -1728,7 +1728,7 @@ function login() {
         scope: 'email,publish_stream'
 
     });
-    
+    */
 
     AjaxResponse();
 

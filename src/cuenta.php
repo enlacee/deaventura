@@ -68,7 +68,7 @@ if (!$cuenta->getLogeado()) {
                                 $aventura = new Aventuras(NULL, $cuenta);
                                 $aventura->editAventura();
                                 break;
-                            case 'updateAventura':
+                                    case 'updateAventura':
                                 $aventura = new Aventuras();
                                 $aventura->updateAventura();
                                 break;
