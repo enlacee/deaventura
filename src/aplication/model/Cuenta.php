@@ -37,7 +37,7 @@ class Cuenta{
         }
 
         //location($this->_facebook->getLogoutUrl()); //Para que también se cierrer facebook
-        echo '<script>window.location = "http://www.deaventura.pe/"</script>';
+        echo '<script>window.location = "/"</script>';
     }
 
     public function cuentaAdd($uid, $name, $lastname, $sexo, $email, $link, $fecha_nacimiento) {

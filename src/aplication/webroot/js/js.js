@@ -1774,7 +1774,8 @@ function AjaxResponse() {
             //$(response).insertBefore('#welcome_b');
 
             //window.location.reload();
-            window.location.replace("http://www.deaventura.pe/cuenta.php?cuenta=bienvenido");
+            
+            window.location.replace("/cuenta.php?cuenta=bienvenido");
 
         },
 
