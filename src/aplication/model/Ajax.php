@@ -86,7 +86,10 @@ class Ajax {
             }
         }
     }
-
+    
+    /*
+     * Function by register news aventuras
+     */
     function comparteAventura_step2($deporte, $modalidad, $agencia, $titulo, $lugar, $desc, $images, $videos) {
         $_SESSION["miaventura"]['idDeporte'] = $deporte;
         $_SESSION["miaventura"]['idModalidad'] = $modalidad;
@@ -94,7 +97,7 @@ class Ajax {
         $_SESSION["miaventura"]['titulo'] = addslashes($titulo);
         $_SESSION["miaventura"]['lugar'] = addslashes($lugar);
         $_SESSION["miaventura"]['descripcion'] = addslashes($desc);
-
+        
         if ($images != "") {
             $array = explode(",", $images);
             $_SESSION["miaventura"]['name_images'] = $array;
