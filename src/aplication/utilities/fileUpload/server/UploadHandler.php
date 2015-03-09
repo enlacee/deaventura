@@ -35,13 +35,20 @@ class UploadHandler
     );
 
     function __construct($options = null, $initialize = true, $error_messages = null) {
+        
+        // Bug in MAC : path 'dir/' no return '/'
+        $pathBase = dirname($this->get_server_var('SCRIPT_FILENAME'));
+        if (!strpos($pathBase, '/', strlen($pathBase)-1)) {
+            $pathBase .= '/';
+        }       
+        
         $this->options = array(
             /*'script_url' => $this->get_full_url().'/',
             'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/files/',
             'upload_url' => $this->get_full_url().'/files/',*/
             
             'script_url' => $this->get_full_url().'/',
-            'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'../../../../webroot/imgs/catalogo/aventuras_img_usuarios/',
+            'upload_dir' => $pathBase . '../../../../webroot/imgs/catalogo/aventuras_img_usuarios/',
             'upload_url' => $this->get_full_url().'../../../../webroot/imgs/catalogo/aventuras_img_usuarios/',
              
             'user_dirs' => false,
@@ -252,7 +259,7 @@ class UploadHandler
     protected function get_file_size($file_path, $clear_stat_cache = false) {
         if ($clear_stat_cache) {
             clearstatcache(true, $file_path);
-        }
+        } 
         return $this->fix_integer_overflow(filesize($file_path));
 
     }
