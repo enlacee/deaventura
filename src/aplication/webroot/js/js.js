@@ -175,7 +175,7 @@ $(document).ready(function() {
     var action;
     if ($('#login').length != 0) {
         action = "javascript: login();";
-    } else if ($('#logout').length != 0) {
+    } else if ($('#logout').length != 0) { alert('action2 : '+action);
         action = "cuenta.php?cuenta=compartir";
     }
     if (total_tipos % 2 != 0) { // por ahora no
@@ -1449,7 +1449,7 @@ $(document).ready(function() {
 
             FB.init({
 
-                appId: '466105603427618',
+                appId: '244715988912141',
 
                 status: true,
 
@@ -1460,7 +1460,7 @@ $(document).ready(function() {
                 oauth: true
 
             });
-
+/*
             FB.Event.subscribe('edge.create', function(response) {
 
                 var pp = parseInt($(".like").text());
@@ -1499,7 +1499,7 @@ $(document).ready(function() {
 
                 data_facebook(url, uid, "coments");
 
-            });
+            });*/
 
         }
 
@@ -1708,7 +1708,7 @@ $(window).scroll(function() {
 function login() {
 
     LodingAnimate();
-/*
+
     FB.login(function(response) {
 
         if (response.status == 'connected') {
@@ -1725,12 +1725,12 @@ function login() {
 
     }, {
 
-        scope: 'email,publish_stream'
+        scope: 'email,publish_actions'
 
     });
-    */
+    
 
-    AjaxResponse();
+    //AjaxResponse();
 
 }
 

@@ -15,7 +15,7 @@ $secciones = new Secciones($cuenta, $deporte);
     <script>
         //initializing API
         window.fbAsyncInit = function() {
-            FB.init({appId: '466105603427618', status: true, cookie: true,
+            FB.init({appId: '244715988912141', status: true, cookie: true,
                 xfbml: true});
         };
         (function() {
