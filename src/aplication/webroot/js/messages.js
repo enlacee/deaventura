@@ -46,8 +46,8 @@ function validate(form, opcion) {
 
  
 function validate_step1(form, opcion) {
-    var cbo_deportes = form.cbo_deportes.value;
-    var cbo_modalidad = form.cbo_modalidad.value;
+    var cbo_deportes = (typeof(form.cbo_deportes.value) === 'undefined') ? 0 : parseInt(form.cbo_deportes.value);
+    var cbo_modalidad = (typeof(form.cbo_modalidad.value) === 'undefined') ? 0 : parseInt(form.cbo_modalidad.value);
     var titulo = form.titulo.value;
     var lugar = form.lugar.value;
     var descripcion = form.descripcion.value;
@@ -92,14 +92,14 @@ function validate_step1(form, opcion) {
         alert("Debe ingresar por lo menos 1 imagen");
         return false;
     }
-    
-    // this button SUBMIT THIS FORM
     //$('#demo1').ajaxupload('start');
     $(".btn-primary.start").click();
 
+    /*
      document.form_login.action = 'cuenta.php?cuenta='+opcion;
      document.form_login.submit();
-     
+     */
+
     return false;
 }
 
