@@ -15,12 +15,14 @@ error_log
 /src/aplication/inc.config.php
 
 /src/aplication/utilities/Libs.php
-# files
+# FILES
 /src/aplication/utilities/cache/
 /src/aplication/utilities/upload_img/
-# images
+# IMAGES
 /src/aplication/webroot/imgs/catalogo/*
 /src/aplication/webroot/imgs/catalogo/*.*
+
+/src/webroot/imgs/*
 
 /docs/
 
