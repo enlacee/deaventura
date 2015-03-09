@@ -36,11 +36,21 @@ class UploadHandler
 
     function __construct($options = null, $initialize = true, $error_messages = null) {
         
+        // Load variable global
+        $REAL_PATH = realpath(__DIR__ . '/../../../../');
+
+        if (is_file($REAL_PATH . '/aplication/inc.config.php')) {
+            include $REAL_PATH . '/aplication/inc.config.php';
+            
+            $upload_dir = $_config['server']['host'] . '/aplication/webroot/imgs/catalogo/aventuras_img_usuarios/';
+            $upload_url = $_config['server']['url'] . '/aplication/webroot/imgs/catalogo/aventuras_img_usuarios/';
+        }
+        
         // Bug in MAC : path 'dir/' no return '/'
         $pathBase = dirname($this->get_server_var('SCRIPT_FILENAME'));
         if (!strpos($pathBase, '/', strlen($pathBase)-1)) {
             $pathBase .= '/';
-        }       
+        }
         
         $this->options = array(
             /*'script_url' => $this->get_full_url().'/',
@@ -48,8 +58,8 @@ class UploadHandler
             'upload_url' => $this->get_full_url().'/files/',*/
             
             'script_url' => $this->get_full_url().'/',
-            'upload_dir' => $pathBase . '../../../../webroot/imgs/catalogo/aventuras_img_usuarios/',
-            'upload_url' => $this->get_full_url().'../../../../webroot/imgs/catalogo/aventuras_img_usuarios/',
+            'upload_dir' => $upload_dir,
+            'upload_url' => $upload_url,
              
             'user_dirs' => false,
             'mkdir_mode' => 0755,

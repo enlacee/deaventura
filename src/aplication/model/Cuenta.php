@@ -372,7 +372,8 @@ class Cuenta{
             <div id="titu_step"><span class="glyphicon glyphicon-picture"></span> Comparte tu Aventura<span>(Paso 1 de 3)</span>  <a class="btn btn_nuevo" href="cuenta.php?cuenta=misAventuras" title="Nueva aventura">Regresar</a></div>    
            <div id="panel_step">
                 
-                <form action="cuenta.php?cuenta=compartir" method="post" enctype="multipart/form-data" accept-charset="utf-8" name="form_step1" id="fileupload" onsubmit="return validate_step1(this, 'step2')">
+                <form action="cuenta.php?cuenta=compartir" method="post" enctype="multipart/form-data" accept-charset="utf-8" 
+                      name="form_step1" id="fileupload" onsubmit="return validate_step1(this, 'step2')">
                     <input type="hidden" value="step2" name="action">
                     <div id="div_input1">
                         <div class="rowElem"><label>Elegir el Deporte:</label>

@@ -18,6 +18,9 @@ error_log
 # files
 /src/aplication/utilities/cache/
 /src/aplication/utilities/upload_img/
+# images
+/src/aplication/webroot/imgs/catalogo/*
+/src/aplication/webroot/imgs/catalogo/*.*
 
 /docs/
 

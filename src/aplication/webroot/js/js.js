@@ -548,7 +548,11 @@ $(document).ready(function() {
     //Inicio del Jquery Plugin File upload
 
 
-
+/**
+* function for load images 
+* - load images to create one aventura
+* -
+ */
     if ($('.new_upload #fileupload').length !== 0) {
 
         $('#fileupload').fileupload({
@@ -613,8 +617,8 @@ $(document).ready(function() {
 
             ],
 
-            done: function(e, data) {
-
+            done: function(e, data) { 
+                // LOAD images of aventuras
                 files_names.push(data.result.files[0].name);
 
             }
