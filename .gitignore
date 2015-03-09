@@ -8,7 +8,6 @@ error_log
 
 # no follow file of configuration local
 /src/blog
-.htaccess
 
 #
 /src/inc.core.php

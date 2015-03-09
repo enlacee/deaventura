@@ -175,7 +175,7 @@ $(document).ready(function() {
     var action;
     if ($('#login').length != 0) {
         action = "javascript: login();";
-    } else if ($('#logout').length != 0) { alert('action2 : '+action);
+    } else if ($('#logout').length != 0) {
         action = "cuenta.php?cuenta=compartir";
     }
     if (total_tipos % 2 != 0) { // por ahora no
@@ -356,12 +356,16 @@ $(document).ready(function() {
         }, function(data) {
 
             if (data != "") {
-
                 $("#cbo_deportes").append(data);
-
+            }
+            
+            var indexSelect = $("#cbo_deportes").attr('data-indexSelected');
+            if (typeof(indexSelect) != 'undefined' ) {
+                $("#cbo_deportes").val(indexSelect);
             }
 
-        })
+        });
+        // select if exist param
 
 
 
@@ -375,8 +379,7 @@ $(document).ready(function() {
 
             }, function(data) {
 
-                if (data != "") {
-
+                if (data != "" && data.length > 3) {
                     $("#cbo_modalidad").html(data);
 
                 } else {
@@ -385,7 +388,24 @@ $(document).ready(function() {
 
                 }
 
-            })
+            });
+            
+            // change cbo agencias
+            $.post("ajax.php", {
+                agencias: '1', idDeporte : $(this).val()
+            }, function(data) {
+
+                if (data != "" && data.length > 3) {
+                    $("#cbo_agencias").html('<option value="">Elegir Agecia ...</option>');
+                    $("#cbo_agencias").append(data);
+                    
+                } else {
+                    $("#cbo_agencias").html('<option value="">No disponible</option>');
+
+                }              
+                
+
+            });            
 
         });
 
@@ -393,45 +413,42 @@ $(document).ready(function() {
 
         /*Cbo*/
 
-        $("#cboDeportes").change(function() {
-
+        // load combobox agencias
+        if ($("#cbo_agencias").length !== 0 && $("#cbo_deportes").val() > 0) {
+            // select if exist param
+            var indexSelect = $("#cbo_deportes").attr('data-indexSelected');
+            
             $.post("ajax.php", {
-
-                idCbo: $(this).val()
-
-            }, function(data) {
-
-                if (data != "") {
-
-                    $("#cbo_modalidad").html(data);
-
-                } else {
-
-                    $("#cbo_modalidad").html('<option value="0">No disponible</option>');
-
-                }
-
-            })
-
-        });
-        
-            // load combobox agentes
-        if ($("#cbo_agencias").length !== 0) {
-            $.post("ajax.php", {
-                agencias: '1'
+                agencias: '1', idDeporte : indexSelect
             }, function(data) {
                 if (data != "") {
                     $("#cbo_agencias").append(data);
+                    // Select agencia
+                    var indexSelectAgencia = $("#cbo_agencias").attr('data-indexSelected');
+                    $("#cbo_agencias").val(indexSelectAgencia);
                 }
-            })  
+                
+            });
         }
+        
 
     }
-
-
-
-
-
+    
+    // load combox agengias
+    if ($("#cbo_agencias").length !== 0 ) {
+            var indexSelect = $("#cbo_deportes").attr('data-indexSelected');
+            $.post("ajax.php", {
+                agencias: '1', idDeporte : indexSelect
+            }, function(data) {
+                if (data != "") {
+                    $("#cbo_agencias").append(data);
+                    // Select agencia
+                    var indexSelectAgencia = $("#cbo_agencias").attr('data-indexSelected');
+                    $("#cbo_agencias").val(indexSelectAgencia);
+                }
+                
+            });
+    }
 
 
 
@@ -1292,6 +1309,7 @@ $(document).ready(function() {
 
     */
 
+
     $(".panel_comparte .delete_ajax").live("click", function() {
 
         var $this = $(this);
@@ -1315,7 +1333,7 @@ $(document).ready(function() {
         })
 
     });
-
+    
 
 
     
@@ -1460,7 +1478,7 @@ $(document).ready(function() {
                 oauth: true
 
             });
-/*
+
             FB.Event.subscribe('edge.create', function(response) {
 
                 var pp = parseInt($(".like").text());
@@ -1499,7 +1517,7 @@ $(document).ready(function() {
 
                 data_facebook(url, uid, "coments");
 
-            });*/
+            });
 
         }
 
@@ -1725,10 +1743,9 @@ function login() {
 
     }, {
 
-        scope: 'email,publish_actions'
+        scope: 'email,publish_stream'
 
     });
-    
 
     //AjaxResponse();
 

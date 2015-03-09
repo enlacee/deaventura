@@ -1,0 +1,29 @@
+#AddCharset utf-8 .html .php .css .js
+Options +FollowSymLinks
+
+RewriteEngine On 
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+
+RewriteRule ^.*$ - [NC,L]
+
+
+RewriteRule ^eventos$                               	index.php?sec=13 [L]
+RewriteRule ^eventos/$                             	index.php?sec=13 [L]
+RewriteRule ^aventuras/([0-9])$                         index.php?sec=14&pag=$1 [L]
+#RewriteRule ^2h1([0-9]+)0h-(.*)$ 			index.php?id_cliente=$1 [L]
+
+RewriteRule ^aventurero_([0-9]+)-(.*)$ 		        index.php?id_cliente=$1 [L]
+RewriteRule ^3b1([0-9]+)0b/aventura-de-(.*)/(.*)$ 	index.php?id_aventura=$1 [L]
+
+RewriteRule ^(.*)/(.*)/(.*)$                            index.php?idn=$1&sec=$2&nombre=$3 [L]
+RewriteRule ^(.*)/(.*)$                                 index.php?cat=$1&nombre=$2 [L]
+RewriteRule ^q=([a-zA-ZáéíóúÁÉÍÓÚÑñ0-9-]*)$             index.php?cat=busqueda&q=$1 [L]
+RewriteRule ^(.*)$                                      index.php?cat=$1 [L,QSA]
+RewriteRule ^(.*)&(.*)$                                 index.php?n=$1\%26$2 [NC,NE,R=301,L]
+
+RewriteRule ^.*$                                        index.php [NC,L]
+
+ErrorDocument 404 /index.php

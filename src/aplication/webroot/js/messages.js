@@ -44,7 +44,7 @@ function validate(form, opcion) {
 }
 
 
-
+ 
 function validate_step1(form, opcion) {
     var cbo_deportes = form.cbo_deportes.value;
     var cbo_modalidad = form.cbo_modalidad.value;
@@ -88,29 +88,18 @@ function validate_step1(form, opcion) {
         return false;
     }
 
-    if (descripcion === "") {
-        inlineMsg('descripcion', 'Usted debe ingresar la descripcion de la aventura.', 2);
-        return false;
-    }
-
-//    if (!descripcion.match(message)) {
-//        inlineMsg('descripcion', 'Solo se admiten números, letras y separadores como comas (,) y puntos (.)', 2);
-//        return false;
-//    }
-
     if ($("#table_imgs tr").length === 0) {
         alert("Debe ingresar por lo menos 1 imagen");
         return false;
     }
-
+    
+    // this button SUBMIT THIS FORM
     //$('#demo1').ajaxupload('start');
     $(".btn-primary.start").click();
 
-    /*
      document.form_login.action = 'cuenta.php?cuenta='+opcion;
      document.form_login.submit();
-     */
-
+     
     return false;
 }
 
@@ -173,10 +162,10 @@ function validate_step2(form) {
 */
 
 
-function validate_updateAv(form, opcion) {
+function validate_updateAv(form, opcion) { 
 
-    var cboDeportes = form.cboDeportes.value;
-    var cbo_modalidad = form.cbo_modalidad.value;
+    var cbo_deportes = (typeof(form.cbo_deportes.value) === 'undefined') ? 0 : parseInt(form.cbo_deportes.value);
+    var cbo_modalidad = (typeof(form.cbo_modalidad.value) === 'undefined') ? 0 : parseInt(form.cbo_modalidad.value);
     var titulo = form.titulo.value;
     var lugar = form.lugar.value;
     var descripcion = form.descripcion.value;
@@ -184,9 +173,12 @@ function validate_updateAv(form, opcion) {
     var message = /^[a-znÑA-Z0-9áéíóúÁÉÍÓÚ,.;: \s\t\n\r\-\(\)]+$/;
     var numletter = /^[a-znÑA-Z0-9áéíóúÁÉÍÓÚ ]+$/;
     var numlettercoma = /^[a-znÑA-Z0-9áéíóúÁÉÍÓÚ ,]+$/;
-
-    if (cboDeportes === 0) {
-        inlineMsg('cboDeportes', 'Usted debe seleccionar el deporte de la aventura.', 2);
+/*console.log('form.cbo_deportes.value', form.cbo_deportes.value);
+console.log('cbo_deportes', cbo_deportes)
+*/
+    if (cbo_deportes === 0) {
+        inlineMsg('cbo_deportes', 'Usted debe seleccionar el deporte de la aventura.', 2);
+        
         return false;
     }
 
