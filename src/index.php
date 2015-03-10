@@ -1,12 +1,8 @@
 <?php
 include 'inc.aplication_top.php';
 include(_includes_ . "inc.header.php");
-//echo "cat---->>".$_GET['cat'];
+
 $deporte = new Deporte($_GET['cat']);
-/*echo "<hr/>";
-echo "<pre>";
-print_r($cuenta);
-echo "</pre>";/**/
 $secciones = new Secciones($cuenta, $deporte);
 ?>
 
@@ -44,14 +40,14 @@ $secciones = new Secciones($cuenta, $deporte);
     
     ?>
     <?php
-            include (_includes_ . "inc.top.php");
-            ?>
+        include (_includes_ . "inc.top.php");
+    ?>
 <!--    <div id="window" style="background:url(<?php echo $tipo ?>) no-repeat center top fixed;">-->
         <div id="window" >
         
         <div id="pagina">
             
-            <div id="cuerpo"> 
+            <div id="cuerpo">
                 <?php
                 
                 if ($_GET['id_ruta']) {

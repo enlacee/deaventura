@@ -445,7 +445,10 @@ class Secciones {
         </div>
         <?php
     }
-
+    
+    /*
+     * Show menu LEFT (buttons) Sections Site
+     */
     public function right_deportes($descripcion = "") {
         $deporte = new Deporte($_GET["cat"]);
 
@@ -1354,7 +1357,11 @@ class Secciones {
         <div class="clear"></div>
         <?php
     }
-
+    
+    /*
+     * Show page home Agencia
+     * @xample : http://deaventura.local/agencias-de-canotaje/lunahuan%C3%A1-rafting-per%C3%BA
+     */
     public function descripcion_agencias() {
         $this->top_deportes();
         $obj_agencia = new Agencia($_GET['id_agencia']);

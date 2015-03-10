@@ -31,8 +31,8 @@ $secciones = new Secciones($cuenta, $deporte);
             include (_includes_ . "inc.top.php");
             ?>
             <div id="cuerpo"> 
+            
                  
-
                 <div id="panel_right">
                     <?php $secciones->right_principal_landing(); ?>
                 </div>
