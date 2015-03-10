@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="http://www.deaventura.pe">
+              <a class="navbar-brand" href="<?php echo _url_; ?>">
                   <img alt="Brand" src="aplication/webroot/imgs/logo_deaventura.png" id="logo-deaventura">
               </a>
             </div>
