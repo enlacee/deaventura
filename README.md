@@ -52,3 +52,9 @@ O dominio (funciona tambien para localhost)
 en este caso yo en Site URL escribir mi dominio local:
     
     https://deaventura.local/
+
+
+
+
+
+    http://deaventura.local/cuenta.php?cuenta=misdatos2#

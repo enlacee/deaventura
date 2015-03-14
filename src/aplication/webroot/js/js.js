@@ -1313,7 +1313,8 @@ $(document).ready(function() {
 
     */
 
-
+    
+    if ($(".panel_comparte .delete_ajax").length !== 0) {
     $(".panel_comparte .delete_ajax").live("click", function() {
 
         var $this = $(this);
@@ -1337,7 +1338,7 @@ $(document).ready(function() {
         })
 
     });
-    
+    }
 
 
     

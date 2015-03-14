@@ -1,6 +1,6 @@
 <?php
 
-class Cuenta{
+class Cuenta extends MainModel {
 
     private $_cliente;
     private $_facebook;
@@ -280,8 +280,6 @@ class Cuenta{
         <?php
     }
     
-    
-    
     public function misdatos_cuenta() {
 
         $sql_cliente = " SELECT * FROM clientes WHERE id_cliente = '" . $this->_cliente->__get("_id") . "' ";
@@ -339,6 +337,23 @@ class Cuenta{
             </div>
 
         </div>
+        <?php
+    }
+	    
+    
+    public function misdatos_cuenta2() {
+
+        $sql_cliente = " SELECT * FROM clientes WHERE id_cliente = '" . $this->_cliente->__get("_id") . "' ";
+        $queryCliente = new Consulta($sql_cliente);
+        $row = $queryCliente->VerRegistro();
+        
+        $includeFile = $this->config()->server->host . 'views/cuenta/mis-datos-cuenta.php';
+
+        if (is_file($includeFile)) {
+            include_once $includeFile;
+        }
+        ?>
+
         <?php
     }
 	

@@ -3,9 +3,12 @@ Options +FollowSymLinks
 
 RewriteEngine On 
 RewriteBase /
-RewriteCond %{REQUEST_FILENAME} -s [OR]
-RewriteCond %{REQUEST_FILENAME} -l [OR]
-RewriteCond %{REQUEST_FILENAME} -d
+## verifica si el archivo esta vacio para responder also index.php
+#RewriteCond %{REQUEST_FILENAME} -s [OR]
+## link
+#RewriteCond %{REQUEST_FILENAME} -l [OR]
+## compara si un este archivo exite en un directorio
+#RewriteCond %{REQUEST_FILENAME} -d      
 
 RewriteRule ^.*$ - [NC,L]
 
@@ -26,4 +29,4 @@ RewriteRule ^(.*)&(.*)$                                 index.php?n=$1\%26$2 [NC
 
 RewriteRule ^.*$                                        index.php [NC,L]
 
-ErrorDocument 404 /index.php
+#ErrorDocument 404 /index.php

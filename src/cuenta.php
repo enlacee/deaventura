@@ -1,6 +1,6 @@
 <?php
 include ('inc.aplication_top.php');
-include(_includes_ . "inc.header.php");
+include(_includes_ . "inc.header.cuenta.php");
 
 
 if (!$cuenta->getLogeado()) {
@@ -19,13 +19,13 @@ if (!$cuenta->getLogeado()) {
 }
 ?>
 <body>
-    <script src="//assets.pinterest.com/js/pinit.js"></script>
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <!--
-    <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
-    {lang: 'es-419'}
-    </script>
-    -->
+    
+  <script>
+  $(function() {
+        $( "#tabs" ).tabs();
+    
+  });
+  </script>
 
     <div id="window">
         <div id="pagina">
@@ -46,6 +46,11 @@ if (!$cuenta->getLogeado()) {
                                 }
                                 $cuenta->misdatos_cuenta();
                             break;
+                            
+                            case 'misdatos2':
+                                $cuenta->misdatos_cuenta2();
+                            break;
+                        
                             case 'compartir':
                                 switch ($_POST['action']) {
                                     case 'step2':
@@ -173,7 +178,7 @@ if (!$cuenta->getLogeado()) {
         </div> 
     </div>
     <?php
-    include (_includes_ . "inc.bottom.php");
+    //include (_includes_ . "inc.bottom.php");
     ?>
 </body>
 </html>

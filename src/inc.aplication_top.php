@@ -7,10 +7,9 @@ require_once(_model_ . "Conexion.php");
 require_once(_model_ . "Mysql.php");
 
 require_once(_model_ . "Configuration.php");
-require_once(_model_ . "Main.php");
+require_once(_model_ . "MainModel.php");
 
 require_once(_model_ . "Idioma.php");
-require_once(_model_ . "Idiomas.php");
 require_once(_model_ . "Msgbox.php");
 require_once(_model_ . "Clientes.php");
 require_once(_model_ . "Cliente.php");
