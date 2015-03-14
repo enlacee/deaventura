@@ -10,11 +10,11 @@ error_log
 /src/blog
 
 #
-/src/inc.core.php
-/src/validateUser.php
-/src/aplication/inc.config.php
+#/src/inc.core.php
+#/src/validateUser.php
+#/src/aplication/inc.config.php
 
-/src/aplication/utilities/Libs.php
+#/src/aplication/utilities/Libs.php
 # FILES
 /src/aplication/utilities/cache/
 /src/aplication/utilities/upload_img/
