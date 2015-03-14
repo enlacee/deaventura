@@ -1,6 +1,6 @@
 <?php
 include ('inc.aplication_top.php');
-include(_includes_ . "inc.header.cuenta.php");
+include(_includes_ . "inc.header.php");
 
 
 if (!$cuenta->getLogeado()) {
