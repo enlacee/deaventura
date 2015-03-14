@@ -45,3 +45,14 @@ form label {
     border-radius: 4px;
     margin-bottom: 16px;
 }
+.chk-item-deport {
+    margin-right: 20px;
+
+}
+.chk-item-deport input[type=checkbox] {
+    margin-right: 5px;
+}
+
+.ico-account {
+    color : #1c94c4;
+}
