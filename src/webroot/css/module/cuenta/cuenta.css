@@ -8,8 +8,8 @@
 
 /* styles form */
 .titulo-cuadrado{
-    margin-bottom: 10.5px;
-    margin-top: 16px;
+    padding: 12px 0px;
+    margin-bottom: 10px;
 }
 
 .titulo-cuadrado .titulo{
@@ -30,6 +30,9 @@
     font-size: 12px !important;
 }
 /* fix style general.css */
+.form-group {
+    margin: 0;
+}
 form label {
     width: inherit;
     text-align: left;
@@ -39,7 +42,7 @@ form label {
     
     background: none repeat scroll 0% 0% #F4F9FE;
     border: 1px solid #D2E9FB;
-    padding: 24px 35px;
+    padding: 10px 25px;
     color: #444;
     font-size: 15px;
     border-radius: 4px;

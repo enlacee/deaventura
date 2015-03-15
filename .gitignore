@@ -24,8 +24,6 @@ error_log
 
 /src/webroot/imgs/catalogo/*
 
-/docs/
-
 
 ## yes follow
 !/aplication/webroot/imgs/logo_deaventura.png

@@ -15,24 +15,35 @@
         
         <!-- TAB General-->
         <div id="tabs-1">
-            <form class="form-horizontal">
+            <form class="form-horizontal" 
+                  action="<?php echo _url_ ?>cuenta.php?cuenta=misdatos" 
+                  method="post" enctype="multipart/form-data" 
+                  accept-charset="utf-8" 
+                  name="form_datos" 
+                  id="form_datos" 
+                  onsubmit="return validate2(this, 'update')">
+                <input type="hidden" value="update" name="action">
+                
+                <div class="titulo-cuadrado">
+                    <p class="titulo">Actualiza tus datos aquí</p>
+                    <p class="mini-letra-color">(Los datos marcos con * son obligatorios)</p>
+                </div>                
+                
                 <fieldset class=" bloque1">
-                    <div class="titulo-cuadrado">
-                        <p class="titulo">Actualiza tus datos aquí</p>
-                        <p class="mini-letra-color">(Los datos marcos con * son obligatorios)</p>
-                    </div>
                     
                     <div class='row'>
-                        <div class='col-md-6'>
+                        <div class='col-md-4'>
                             <div class='form-group col-md-12'>
                                 <label for="name">Nombres:<span class="mini-letra-color">*</span></label>
-                                <input class="form-control" id="name" name="name" placeholder="Nombre"/>
+                                <input class="form-control" id="name" name="name" placeholder="Nombre"
+                                       value="<?php echo $row['nombre_cliente'] ?>"/>
                             </div>
                         </div>
-                        <div class='col-md-6'>
+                        <div class='col-md-4'>
                             <div class='form-group col-md-12'>
                                 <label for="lastname">Apellidos:<span class="mini-letra-color">*</span></label>
-                                <input class="form-control" id="lastname" name="lastname"  placeholder="Apellidos"/>
+                                <input class="form-control" id="lastname" name="lastname"  placeholder="Apellidos"
+                                    value="<?php echo $row['apellidos_cliente'] ?>"/>
                             </div>
                         </div>
                     </div>
@@ -41,34 +52,39 @@
                         <div class='col-sm-12'>
                             <div class='form-group col-md-4'>
                                 <label>Email: <span class="mini-letra-color">*</span></label>
-                                <input type="email" class="form-control" placeholder="Email">
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Email" autocomplete="off"
+                                    value="<?php echo $row['email_cliente'] ?>">
                             </div>
                         </div>
                     </div>
                 </fieldset>
                   
                 
-                <fieldset class=" bloque1">
-                    <div class="titulo-ckek"> Sexo: <span class="mini-letra-color">(opcional)</span></div>
+                <fieldset class=" bloque1">                  
                     
+                    <label>Sexo: <span class="mini-letra-color">(opcional)</span></label><br />
                     <label class="radio-inline">
-                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Masculino
+                        <input type="radio" name="sexo" value="M"
+                            <?php echo ($row['sexo_cliente'] == 'M') ? 'checked="checked"': '' ?>> Masculino
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Femenino
+                        <input type="radio" name="sexo" value="F" 
+                            <?php echo ($row['sexo_cliente'] == 'F') ? 'checked="checked"': '' ?> > Femenino
                     </label>
                     
                     <div class='row'>
-                        <div class='col-md-6'>
+                        <div class='col-md-4'>
                             <div class='form-group col-md-12'>
-                                <label for="birthday">Fecha de Nacimiento: <span class="mini-letra-for">(opcional)</span></label>
-                                <input type="text" id="birthday" name="birthday" class="form-control" placeholder="Ej: Huaraz, Ancash">
+                                <label for="birthday">Fecha de Nacimiento: <span class="mini-letra-color">(opcional)</span></label>
+                                <input type="text" id="birthday" name="birthday" class="form-control" placeholder=""
+                                    value="<?php echo ($row['fecha_nacimiento_cliente'] != 'f') ? $row['fecha_nacimiento_cliente'] : '' ?>">
                             </div>
                         </div>
                         <div class='col-md-6'>
                             <div class='form-group col-md-12'>
-                                <label for="address">Vivo en:<span class="mini-letra-color">(opcional)</span></label>
-                                <input class="form-control" id="address" name="address"  placeholder="Ej: Huaraz, Ancash"/>
+                                <label for="direccion">Vivo en:<span class="mini-letra-color">(opcional)</span></label>
+                                <input class="form-control" id="direccion" name="direccion"  placeholder="Ej: Huaraz, Ancash"
+                                       value="<?php echo $row['direccion'] ?>"/>
                             </div>
                         </div>
                     </div>
@@ -76,8 +92,9 @@
                     <div class='row'>
                         <div class='col-sm-12'>
                             <div class='form-group col-md-6'>
-                                <label>Telefono: <span class="mini-letra-color">(opcional)</span></label>
-                                <input type="text" class="form-control" id="phone" name="phone" placeholder="">
+                                <label for="telefono">Telefono: <span class="mini-letra-color">(opcional)</span></label>
+                                <input type="text" class="form-control" id="telefono" name="telefono" placeholder=""
+                                    value="<?php echo $row['telefono'] ?>">
                             </div>
                             
                             <div class='form-group col-md-6'>
