@@ -9,14 +9,12 @@
         <meta name="language" content="spanish" />
         <meta name="country" content="PE, Perú" /> 
 
-        <base href="<?php echo _url_ ?>" />
-
         <link rel="shortcut icon" href="<?php echo _imgs_ ?>/favicon_deaventura.png" />
         <link href="<?php echo _imgs_ . 'facebook/' . $image_face ?>" rel="image_src" />
-         <link href="aplication/webroot/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="aplication/webroot/css/core.css" rel="stylesheet" type="text/css" />
-        <link href="aplication/webroot/css/message.css" rel="stylesheet" type="text/css" />
-        <link href="//fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,700,700italic&subset=latin,greek,latin-ext" rel="stylesheet" type="text/css" />
+        <link href="<?php echo _url_ ?>aplication/webroot/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo _url_ ?>aplication/webroot/css/core.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo _url_ ?>aplication/webroot/css/message.css" rel="stylesheet" type="text/css" />
+        <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,700,700italic&subset=latin,greek,latin-ext" rel="stylesheet" type="text/css" />
         <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'/>
         <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'/>
         <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'/>
@@ -26,21 +24,21 @@
         <![endif]-->
         
         <?php if (isset($_GET['aventura'])) { ?>
-            <link href="aplication/webroot/css/awShowcase.css" rel="stylesheet" type="text/css" media="all" />
+            <link href="<?php echo _url_ ?>aplication/webroot/css/awShowcase.css" rel="stylesheet" type="text/css" media="all" />
         <?php } ?>
         <?php if ($_GET["cuenta"] == "compartir" || $_GET["cuenta"] == "edit") { ?>
             <!-- CSS to style the file input field as button and adjust the jQuery UI progress bars -->
-            <link href="aplication/utilities/fileUpload/css/jquery.fileupload-ui.css" rel="stylesheet" >
+            <link href="<?php echo _url_ ?>aplication/utilities/fileUpload/css/jquery.fileupload-ui.css" rel="stylesheet" >
         <?php } ?>
 
 		<script type="text/javascript" src="aplication/webroot/js/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
-        <script src="aplication/webroot/js/modernizr.custom.43235.js"></script>
-        <script src="aplication/webroot/js/jquery-1.8.2.min.js" type="text/javascript"></script>
+        <script src="<?php echo _url_ ?>aplication/webroot/js/modernizr.custom.43235.js"></script>
+        <script src="<?php echo _url_ ?>aplication/webroot/js/jquery-1.8.2.min.js" type="text/javascript"></script>
            
            
         <script type="text/javascript" src="aplication/webroot/js/bootstrap.min.js"></script>
-        <script src="aplication/webroot/js/js.js" type="text/javascript" ></script>
-        <script src="aplication/webroot/js/messages.js" type="text/javascript" ></script>
+        <script src="<?php echo _url_ ?>aplication/webroot/js/js.js" type="text/javascript" ></script>
+        <script src="<?php echo _url_ ?>aplication/webroot/js/messages.js" type="text/javascript" ></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places" type="text/javascript" ></script>
 
 
@@ -50,22 +48,22 @@
         <?php if ($_GET["cuenta"] == "compartir" || $_GET["cuenta"] == "edit") { ?>
 
             <!-- The File Upload plugin -->
-            <script src="aplication/utilities/fileUpload/js/vendor/jquery.ui.widget.js"></script>
-            <script src="aplication/utilities/fileUpload/js/tmpl.min.js"></script>            
-            <script src="aplication/utilities/fileUpload/js/load-image.min.js"></script>
-            <script src="aplication/utilities/fileUpload/js/canvas-to-blob.min.js"></script>
+            <script src="<?php echo _url_ ?>aplication/utilities/fileUpload/js/vendor/jquery.ui.widget.js"></script>
+            <script src="<?php echo _url_ ?>aplication/utilities/fileUpload/js/tmpl.min.js"></script>            
+            <script src="<?php echo _url_ ?>aplication/utilities/fileUpload/js/load-image.min.js"></script>
+            <script src="<?php echo _url_ ?>aplication/utilities/fileUpload/js/canvas-to-blob.min.js"></script>
 
-            <script src="aplication/utilities/fileUpload/js/jquery.iframe-transport.js"></script>
-            <script src="aplication/utilities/fileUpload/js/jquery.fileupload.js"></script>
-            <script src="aplication/utilities/fileUpload/js/jquery.fileupload-process.js"></script>
-            <script src="aplication/utilities/fileUpload/js/jquery.fileupload-image.js"></script>
-            <script src="aplication/utilities/fileUpload/js/jquery.fileupload-validate.js"></script>
-            <script src="aplication/utilities/fileUpload/js/jquery.fileupload-ui.js"></script>
+            <script src="<?php echo _url_ ?>aplication/utilities/fileUpload/js/jquery.iframe-transport.js"></script>
+            <script src="<?php echo _url_ ?>aplication/utilities/fileUpload/js/jquery.fileupload.js"></script>
+            <script src="<?php echo _url_ ?>aplication/utilities/fileUpload/js/jquery.fileupload-process.js"></script>
+            <script src="<?php echo _url_ ?>aplication/utilities/fileUpload/js/jquery.fileupload-image.js"></script>
+            <script src="<?php echo _url_ ?>aplication/utilities/fileUpload/js/jquery.fileupload-validate.js"></script>
+            <script src="<?php echo _url_ ?>aplication/utilities/fileUpload/js/jquery.fileupload-ui.js"></script>
             <!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
             <!--[if gte IE 8]><script src="aplication/utilities/fileUpload/js/cors/jquery.xdr-transport.js"></script><![endif]-->
             <!-- End: The File Upload plugin -->
             
-            <script src="aplication/webroot/js/jquery-ui-1.10.3.custom.min.js"></script>
+            <script src="<?php echo _url_ ?>aplication/webroot/js/jquery-ui-1.10.3.custom.min.js"></script>
         <?php } ?>
          
 

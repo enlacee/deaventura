@@ -40,6 +40,14 @@ configurar /etc/hosts
     127.0.0.1       deaventura.local
 
 
+### PASO 3:
+configurar servidor permisos: aplication/utilities/timthumb.php
+    sudo chmod 777 aplication/utilities
+
+
+
+
+
 ## Configuración de API (Facebook)
 
 API FACEBOOK : https://developers.facebook.com

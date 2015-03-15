@@ -40,7 +40,10 @@ class Cuenta extends MainModel {
         echo '<script>window.location = "/"</script>';
     }
 
-    public function cuentaAdd($uid, $name, $lastname, $sexo, $email, $link, $fecha_nacimiento) {
+    /**
+     * Registrar Cuenta de Facebook
+     */
+    public function cuentaAdd ($uid, $name, $lastname, $sexo, $email, $link, $fecha_nacimiento) {
         if ($uid != "" && $name != "" && $lastname != "" && $sexo != "" && $email != "" && $link != "") {
             $sql = "INSERT INTO clientes (id_facebook_cliente,nombre_cliente,apellidos_cliente,fecha_registro_cliente,sexo_cliente,email_cliente,url_cliente,tipo_cliente,fecha_nacimiento_cliente) ". "VALUES('" . $uid . "','" . $name . "','" . $lastname . "',NOW(),'" . $sexo . "','" . $email . "','" . $link . "',0,'".$fecha_nacimiento."')";
             $query = new Consulta($sql);

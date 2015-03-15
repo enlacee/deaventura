@@ -22,7 +22,7 @@ error_log
 /src/aplication/webroot/imgs/catalogo/*
 /src/aplication/webroot/imgs/catalogo/*.*
 
-/src/webroot/imgs/*
+/src/webroot/imgs/catalogo/*
 
 /docs/
 

@@ -36,10 +36,10 @@ if (isset($_POST["connect"]) && $_POST["connect"] == 1) {
     $name = $me['first_name'];
     $lastname = $me['last_name'];
     $email = $me['email'];
-    $sexo = $me['gender'];
+    $sexo = ($me['gender'] == 'male') ? 'M' : 'F' ;
     $link = $me['link'];
-    $fecha_nacimiento = "f".$me['user_birthday'];
-    
+    $fecha_nacimiento = $me['birthday'];
+        
     
     //$uid = '1031113918';
     $resukt = $cuenta->validarUsuario($uid);

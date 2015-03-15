@@ -20,5 +20,5 @@ if ($i == 1) {
     $_config['bd']['server'] = "localhost";                                        //	Nombre del Host
     $_config['bd']['name'] = "nuevode";     //	Nombre de la BD
     $_config['bd']['user'] = "root";      //	Nombre del Usuario de la BD
-    $_config['bd']['password'] = "1q2w3e4r";
+    $_config['bd']['password'] = "123456";
 }

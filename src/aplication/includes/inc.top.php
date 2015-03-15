@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="<?php echo _url_; ?>">
-                  <img alt="Brand" src="aplication/webroot/imgs/logo_deaventura.png" id="logo-deaventura">
+                  <img alt="Brand" src="<?php echo _url_; ?>aplication/webroot/imgs/logo_deaventura.png" id="logo-deaventura">
               </a>
             </div>
 

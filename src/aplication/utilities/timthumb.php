@@ -188,6 +188,7 @@ class timthumb {
 		//On windows systems I'm assuming fileinode returns an empty string or a number that doesn't change. Check this.
 		$this->salt = @filemtime(__FILE__) . '-' . @fileinode(__FILE__);
 		$this->debug(3, "Salt is: " . $this->salt);
+
 		if(FILE_CACHE_DIRECTORY){
 			if(! is_dir(FILE_CACHE_DIRECTORY)){
 				@mkdir(FILE_CACHE_DIRECTORY);
@@ -197,6 +198,8 @@ class timthumb {
 				}
 			}
 			$this->cacheDirectory = FILE_CACHE_DIRECTORY;
+
+
 			if (!touch($this->cacheDirectory . '/index.html')) {
 				$this->error("Could not create the index.html file - to fix this create an empty file named index.html file in the cache directory.");
 			}
