@@ -31,12 +31,13 @@
             <link href="<?php echo _url_ ?>aplication/utilities/fileUpload/css/jquery.fileupload-ui.css" rel="stylesheet" >
         <?php } ?>
 
-		<script type="text/javascript" src="<?php echo _url_ ?>aplication/webroot/js/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+        <script type="text/javascript" src="<?php echo _url_ ?>aplication/webroot/js/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
         <script src="<?php echo _url_ ?>aplication/webroot/js/modernizr.custom.43235.js"></script>
         <script src="<?php echo _url_ ?>aplication/webroot/js/jquery-1.8.2.min.js" type="text/javascript"></script>
            
            
         <script type="text/javascript" src="<?php echo _url_ ?>aplication/webroot/js/bootstrap.min.js"></script>
+        <script src="<?php echo _url_ ?>aplication/webroot/js/app.js" type="text/javascript" ></script>
         <script src="<?php echo _url_ ?>aplication/webroot/js/js.js" type="text/javascript" ></script>
         <script src="<?php echo _url_ ?>aplication/webroot/js/messages.js" type="text/javascript" ></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places" type="text/javascript" ></script>

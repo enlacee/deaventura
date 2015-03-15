@@ -5,22 +5,8 @@ include(_includes_ . "inc.header.php");
 $deporte = new Deporte($_GET['cat']);
 $secciones = new Secciones($cuenta, $deporte);
 ?>
-
 <body>
     <div id="fb-root"></div>
-    <script>
-        //initializing API
-        window.fbAsyncInit = function() {
-            FB.init({appId: '244715988912141', status: true, cookie: true,
-                xfbml: true});
-        };
-        (function() {
-            var e = document.createElement('script'); e.async = true;
-            e.src = document.location.protocol +
-                '//connect.facebook.net/es_LA/all.js';
-            document.getElementById('fb-root').appendChild(e);
-        }());
-    </script>
     <?php
     if (isset($_GET['aventura']) && $_GET['aventura'] != '') {
         $aventura = new Aventura($_GET['aventura']);
@@ -147,7 +133,10 @@ $secciones = new Secciones($cuenta, $deporte);
             </footer> 
         </div> 
     </div>
-    <script src="//assets.pinterest.com/js/pinit.js"></script>
+    <script type="text/javascript">
+        App.initAppFacebook();
+    </script>
+    <script src="http://assets.pinterest.com/js/pinit.js"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
         {lang: 'es-419'}

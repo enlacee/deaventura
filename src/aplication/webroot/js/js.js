@@ -1,43 +1,44 @@
+
 function abrir_detalle (id_venta) {
 
   $("#abrir_detalle_"+id_venta).css('display','none');
   $("#cerrar_detalle_"+id_venta).css('display','block');
   
-
   $("#add_detalle_"+id_venta).show('slow');   
-        $.ajax({              
-              url: 'ventas_detalle.php?id_venta='+id_venta,             
-              success: function(data) {  
-                $("#add_detalle_"+id_venta).html(data);   
-              },     
-              beforeSend: function(objeto){ 
-              },
-              complete: function(){
-              }
-        });  
+    $.ajax({              
+          url: 'ventas_detalle.php?id_venta='+id_venta,             
+          success: function(data) {  
+            $("#add_detalle_"+id_venta).html(data);   
+          },     
+          beforeSend: function(objeto){ 
+          },
+          complete: function(){
+          }
+    });  
 }
 
-function cerrar_menu (id_venta) {   
+function cerrar_menu (id_venta) {
+    $("#abrir_detalle_"+id_venta).css('display','block');
+    $("#cerrar_detalle_"+id_venta).css('display','none');
 
-  $("#abrir_detalle_"+id_venta).css('display','block');
-  $("#cerrar_detalle_"+id_venta).css('display','none');
-
-  $("#add_detalle_"+id_venta).css('display','none');
+    $("#add_detalle_"+id_venta).css('display','none');
 }
 
+/**
+ *  Ready
+ */
 $(document).ready(function() {
 
-	$list = $("#list_item");
+    $list = $("#list_item");
 
     if ($list.length != 0) {
 
         $list.sortable();
 
         $list.disableSelection();
-
     }
 	
-	$(".delete_step").click(function() {
+    $(".delete_step").click(function() {
 
         var $this = $(this);
 
@@ -62,7 +63,6 @@ $(document).ready(function() {
         }
 
     });
-	
 	
 	tinyMCE.init({
 
