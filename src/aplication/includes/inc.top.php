@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="<?php echo _url_; ?>">
-                  <img alt="Brand" src="<?php echo _url_; ?>aplication/webroot/imgs/logo_deaventura.png" id="logo-deaventura">
+                  <img alt="de aventura" src="<?php echo _url_; ?>aplication/webroot/imgs/logo_deaventura.png" id="logo-deaventura">
               </a>
             </div>
 
@@ -21,30 +21,30 @@
               <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Comunidad <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu"  class="active">
-                    <li><a href="aventuras">Aventuras</a></li>
-                    <li><a href="inspiraciones">Inspiracion</a></li>
-                    <li><a href="articulos">Productos</a></li>
+                    <li><a href="<?php echo _url_; ?>aventuras">Aventuras</a></li>
+                    <li><a href="<?php echo _url_; ?>inspiraciones">Inspiracion</a></li>
+                    <li><a href="<?php echo _url_; ?>articulos">Productos</a></li>
                   </ul>
               </li>
                   <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Deportes <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu"  class="active">
-                    <li><a href="Trekking">Trekking</a></li>
-                    <li><a href="Ciclismo">Ciclismo</a></li>
-                    <li><a href="Canotaje">Canotaje</a></li>
-                    <li><a href="Escalada">Escalada</a></li>
-                    <li><a href="Parapente">Parapente</a></li>
-                    <li><a href="Puenting">Puenting</a></li>
-                    <li><a href="Surf">Surf</a></li>
-                    <li><a href="Sandboard">Sandboard</a></li>
-                    <li><a href="4x4">Todo Terreno</a></li>
-                    <li><a href="otros-deportes">+ Deportes</a></li>
+                    <li><a href="<?php echo _url_; ?>Trekking">Trekking</a></li>
+                    <li><a href="<?php echo _url_; ?>Ciclismo">Ciclismo</a></li>
+                    <li><a href="<?php echo _url_; ?>Canotaje">Canotaje</a></li>
+                    <li><a href="<?php echo _url_; ?>Escalada">Escalada</a></li>
+                    <li><a href="<?php echo _url_; ?>Parapente">Parapente</a></li>
+                    <li><a href="<?php echo _url_; ?>Puenting">Puenting</a></li>
+                    <li><a href="<?php echo _url_; ?>Surf">Surf</a></li>
+                    <li><a href="<?php echo _url_; ?>Sandboard">Sandboard</a></li>
+                    <li><a href="<?php echo _url_; ?>4x4">Todo Terreno</a></li>
+                    <li><a href="<?php echo _url_; ?>otros-deportes">+ Deportes</a></li>
                   </ul>
               </li>
-              <li><a href="eventos">Eventos</a></li>
+              <li><a href="<?php echo _url_; ?>eventos">Eventos</a></li>
 <!--          <li><a href="aventuras">Aventuras</a></li>
               <li><a href="eventos">Destinos</a></li>-->
-              <li><a href="blog">Blog</a></li>
+              <li><a href="<?php echo _url_; ?>blog">Blog</a></li>
               </ul>
 <!-- 
              <form class="navbar-form navbar-left" role="search" name="fbuscar">
@@ -60,16 +60,24 @@
                   <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $cuenta->__get("_cliente")->__get("_nombre"); ?><span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="cuenta.php?cuenta=compartir">Compartir Aventura</a></li>
+                    <li>
+                        <a href="<?php echo _url_; ?>cuenta.php?cuenta=compartir">Compartir Aventura</a>
+                    </li>
                     <li class="divider"></li>  
-                    <li><a href="cuenta.php?cuenta=misdatos">Mi Cuenta</a></li>
-                    <li><a href="cuenta.php?cuenta=misAventuras">Mis Aventuras</a></li>
-                    <li><a href="cuenta.php?cuenta=favoritos">Mis Favoritos</a></li>
+                    <li>
+                        <a href="<?php echo _url_; ?>cuenta.php?cuenta=misdatos">Mi Cuenta</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo _url_; ?>cuenta.php?cuenta=misAventuras">Mis Aventuras</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo _url_; ?>cuenta.php?cuenta=favoritos">Mis Favoritos</a>
+                    </li>
                     <?php if($cuenta->__get("_cliente")->__get("_tipo_usuario")=='1'){?>
-                        <li><a href="cuenta.php?cuenta=miseventos">Mis Eventos</a></li> <?php
+                        <li><a href="<?php echo _url_; ?>cuenta.php?cuenta=miseventos">Mis Eventos</a></li> <?php
                     }?>
                     <li class="divider"></li>
-                    <li><a href="cuenta.php?cuenta=cerrar">Salir</a></li>
+                    <li><a href="<?php echo _url_; ?>cuenta.php?cuenta=cerrar">Salir</a></li>
                   </ul>
                   
                 </li>

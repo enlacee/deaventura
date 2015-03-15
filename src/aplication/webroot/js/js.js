@@ -1779,8 +1779,14 @@ function AjaxResponse() {
             //$(response).insertBefore('#welcome_b');
 
             //window.location.reload();
-            
-            window.location.replace("/cuenta.php?cuenta=bienvenido");
+            //console.log('response', response);
+            if (response == 'false') {
+                var message = "La applicación requiere datos basicos : (email, fecha de cumpleaños) \n"
+                    + "Verifique su cuenta de Facebook, para poder acceder.";
+                alert(message);
+            } else {
+                window.location.replace("/cuenta.php?cuenta=bienvenido");
+            }
 
         },
 

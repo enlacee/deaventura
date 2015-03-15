@@ -59,6 +59,8 @@ class Cuenta extends MainModel {
 
                 $this->cuentaAcceso($uid);
             }
+        } else {
+            return false;
         }
     }
 

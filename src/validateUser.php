@@ -4,7 +4,7 @@ include("inc.aplication_top.php");
 
 if (isset($_POST["connect"]) && $_POST["connect"] == 1) {
     
-    $return_url = 'http://deaventura.develoweb.pe/';  //path to script folder
+    $return_url = 'http://deaventura.pe/';  //path to script folder
     //Call Facebook API
     //require 'aplication/utilities/sdk-facebook/src/facebook.php';
     $facebook = new Facebook(array(
@@ -12,7 +12,6 @@ if (isset($_POST["connect"]) && $_POST["connect"] == 1) {
                 'secret' => '77ffafc45dad5ca6cc1591a0cc867dc7',
                 'cookie' => true
             ));
-    
 
     $fbuser = $facebook->getUser();
     if ($fbuser) {
@@ -31,14 +30,14 @@ if (isset($_POST["connect"]) && $_POST["connect"] == 1) {
         $loginUrl = $facebook->getLoginUrl(array('redirect_uri' => $return_url, false));
         header('Location: ' . $loginUrl);
     }
-            
+        
     //user details
     $name = $me['first_name'];
     $lastname = $me['last_name'];
     $email = $me['email'];
-    $sexo = ($me['gender'] == 'male') ? 'M' : 'F' ;
+    $sexo = $me['gender'];
     $link = $me['link'];
-    $fecha_nacimiento = $me['birthday'];
+    $fecha_nacimiento = "f" . $me['birthday'];
         
     
     //$uid = '1031113918';
@@ -50,8 +49,12 @@ if (isset($_POST["connect"]) && $_POST["connect"] == 1) {
         
     } else {
         //User is nuevo y lo ingreso a la bd
-        echo 'Bienvenido, ' . $me['first_name'] . ' ' . $me['last_name'] . '';
-        $cuenta->cuentaAdd($uid, $name, $lastname, $sexo, $email, $link, $fecha_nacimiento);
+        $flag = $cuenta->cuentaAdd($uid, $name, $lastname, $sexo, $email, $link, $fecha_nacimiento);
+        if ($flag == false) {
+            echo 'false';
+        } else {
+            echo 'Bienvenido, ' . $me['first_name'] . ' ' . $me['last_name'] . '';
+        }        
     }
     
     $cuenta->__set("_facebook",$facebook);
