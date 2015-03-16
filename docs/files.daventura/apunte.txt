@@ -1,0 +1,7 @@
+
+
+// CATEWGORIAS
+http://local.local/develoweb/nuevode/index.php?cat=inspiraciones
+http://local.local/develoweb/nuevode/index.php?cat=Ciclismo
+
+// AGENCIAS

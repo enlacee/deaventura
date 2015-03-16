@@ -131,6 +131,7 @@ class Cuenta extends MainModel {
     }
 
     public function cuentaUpdate() {
+        echo "<pre>"; print_r(print_r($_POST)); exit;
 
         $imagen = "";
         if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != "") {
@@ -173,6 +174,25 @@ class Cuenta extends MainModel {
 
         $query = new Consulta($sql);
         // location("cuenta.php?cuenta=misdatos");
+    }
+    
+    /*
+     * Validate and return array data accounts (perfil)
+     */
+    private function extraFieldsCuenta($post) {
+        
+        $data = array();
+        if (is_array($post) && count($post) > 0) {
+            
+            foreach ($post as $key => $value) {
+                if (!empty($post[$key]) == 'describete') {
+                    $data[$key] = $value;
+                }
+            }
+        }
+        
+        return $data;
+        
     }
 
     public function bienvenido_cuenta() {

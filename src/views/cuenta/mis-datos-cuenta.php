@@ -33,6 +33,18 @@
                 <fieldset class=" bloque1">
                     
                     <div class='row'>
+
+                        
+                       <div class='col-md-12'>
+                            <div class='form-group col-md-12'>
+                                <label for="name">Descríbete:<span class="mini-letra-color">*</span></label>
+                                <textarea name="describete" class="form-control required" rows="2" aria-required="true"><?php echo $row['describete'] ?></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class='row'>
                         <div class='col-md-4'>
                             <div class='form-group col-md-12'>
                                 <label for="name">Nombres:<span class="mini-letra-color">*</span></label>
@@ -76,8 +88,8 @@
                     <div class='row'>
                         <div class='col-md-4'>
                             <div class='form-group col-md-12'>
-                                <label for="birthday">Fecha de Nacimiento: <span class="mini-letra-color">(opcional)</span></label>
-                                <input type="text" id="birthday" name="birthday" class="form-control" placeholder=""
+                                <label for="fecha_nacimiento_cliente">Fecha de Nacimiento: <span class="mini-letra-color">(opcional)</span></label>
+                                <input type="text" id="birthday" name="fecha_nacimiento_cliente" class="form-control date" placeholder=""
                                     value="<?php echo ($row['fecha_nacimiento_cliente'] != 'f') ? $row['fecha_nacimiento_cliente'] : '' ?>">
                             </div>
                         </div>
@@ -125,7 +137,7 @@
                             <label for="deporteDesde">Practico Deportes de Aventura desde el Año:<span class="mini-letra-color">(opcional)</span></label>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-control" name="deporteDesde" id="deporteDesde">
+                            <select class="form-control" name="deporte_desde" id="deporteDesde">
                                 <option value="">Elegir Año</option>
                                 <option value="2015" <?php echo ($row['deporte_desde'] == '2015') ? 'selected="selected"' : '' ?>>2015</option>
                                 <option value="2014" <?php echo ($row['deporte_desde'] == '2014') ? 'selected="selected"' : '' ?>>2014</option>
@@ -140,18 +152,27 @@
                 <fieldset class=" bloque1">
                     <div class='form-group '>
                         <div class="col-md-12">
-                            <label for="deporte">Mis Deportes de Aventura favoritos son:<span class="mini-letra-color">(opcional)</span></label>
+                            <label for="deporte_favorito">Mis Deportes de Aventura favoritos son:<span class="mini-letra-color">(opcional)</span></label>
                         </div>
                         
                         <div class="col-md-12">
-                            <?php if (is_array($listSports) && count($listSports) > 0 ) : //var_dump($listSports);exit; ?>
+                            <?php if (is_array($listSports) && count($listSports) > 0 ) : ?>
                                 <?php foreach ($listSports as $key => $value) : ?>
                                 <span class="chk-item-deport">
-                                    <input type="checkbox" name="deporte" value="<?php echo $listSports[$key]['id_deporte'] ?>"
-                                           ><?php echo $listSports[$key]['nombre_deporte'] ?>
+                                    <input type="checkbox" name="deporte_favorito[]" value="<?php echo $listSports[$key]['id_deporte'] ?>"><?php echo $listSports[$key]['nombre_deporte'] ?>
                                 </span>
                                 <?php endforeach;?>
+                            <?php else: ?>
+                                <span class="chk-item-deport">No existen deportes para mostrar.</span>
                             <?php endif; ?>
+                        </div>
+                    </div>
+                    
+                    <div class='form-group '>
+                        <div class="col-md-12">
+                            <label for="deporte">Equipo que utilizo:<span class="mini-letra-color">(opcional)</span></label>
+                            <input type="text" id="birthday" name="deporte_equipo_que_utilizo" id ="deporte_equipo_que_utilizo" class="form-control"
+                                placeholder="Bicicleta  Montañera, Equipo de Escalar" value="<?php echo $row['deporte_equipo_que_utilizo'] ?>">
                         </div>
                     </div>
                 </fieldset>
@@ -162,7 +183,7 @@
             
         </div>
         
-</form>        
+       
         <!-- TAB IMAGE-->
         <div id="tabs-3">
             
@@ -172,29 +193,48 @@
             
             <div class="row">
                 <div class="col-md-4">
-                    <img src="image.jpg" class="img-responsive"/>
+                    <img id='myCuentaImage' src="https://graph.facebook.com/<?php echo $this->_cliente->__get("_idFacebook") ?>/picture?type=large" width="200px" height="200PX">
+                    <br /><br />
                 </div>
                 <div class="col-md-8">
-                    <fieldset class="bloque1" >
                     
-                        <h2>Sube una foto aquí:</h2>
-                        
-                        
+                    <fieldset class="bloque1" >
+                        <h2>Sube una foto aquí:</h2><br />
                         <div class="text-center">
-                            <input type="button" class="btn-lg" value="Subir Foto" />
+                            
+                            <span class="btn  btn-lg fileinput-button">
+                                <span>Subir Foto</span>
+                                <!-- The file input field used as target for the file upload widget -->
+                                <input id="myCuentaFileupload" type="file" name="files[]" data-url="<?php _url_?>aplication/utilities/fileUpload/server/" multiple>
+                                <input id="myCuentaFilePathServer" type="hidden" value=""/>
+                            </span>
+                            <br>
+                            <br>
+                            <!-- The global progress bar -->
+                            <div id="progress" class="progress">
+                                <div class="progress-bar progress-bar-success"></div>
+                            </div>
                         </div>
                     </fieldset>
                     
+                    <div class="text-center">
+                        <input type="submit" class="btn-lg btn-primary" value="Guardar Cambios"/>
+                    </div>
+                    
                 </div>
-                
             </div>
             
-            
-            
-            
         </div>
+        
+</form>
         
     </div>
 
 </div>
-
+<!--
+<span class="btn btn-success fileinput-button">
+    <i class="glyphicon glyphicon-plus"></i>
+    <span>Select files...</span>
+    <input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
+</span>
+fileupload--> 

@@ -178,7 +178,11 @@ if (!$cuenta->getLogeado()) {
         </div> 
     </div>
     <?php
-    //include (_includes_ . "inc.bottom.php");
+    if ($_GET['cuenta']) {
+        require_once (_includes_ . "inc.bottom.cuenta.php");
+    } else {
+        require_once (_includes_ . "inc.bottom.php");
+    }
     ?>
 </body>
 </html>
