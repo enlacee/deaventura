@@ -157,14 +157,18 @@ class Cuenta extends MainModel {
             $imagen = ", image = '" . $nombre . "'";
         }
 
-
         $sql = "UPDATE clientes SET 
                     nombre_cliente='" . addslashes($_POST['name']) . "',
                     apellidos_cliente='" . addslashes($_POST['lastname']) . "',
                     sexo_cliente='" . $_POST['sexo'] . "',
                     tipo_foto_cliente='" . $_POST['foto'] . "',
                     email_cliente='" . addslashes($_POST['email']) . "'
-                    " . $imagen . " 
+                    " . $imagen . ",
+                    fecha_nacimiento_cliente = '". $_POST['birthday'] ."',
+                    direccion = '". $_POST['direccion'] ."',
+                    telefono = '". $_POST['telefono'] ."',
+                    deporte_desde = '". $_POST['deporteDesde'] ."',
+                    deporte = ''
                 WHERE id_cliente='" . $this->_cliente->__get("_id") . "' ";
 
         $query = new Consulta($sql);
@@ -347,13 +351,30 @@ class Cuenta extends MainModel {
 	    
     
     public function misdatos_cuenta2() {
-
+        
+        $cache = $this->getConfigCache();        
+        
         $sql_cliente = " SELECT * FROM clientes WHERE id_cliente = '" . $this->_cliente->__get("_id") . "' ";
         $queryCliente = new Consulta($sql_cliente);
-        $row = $queryCliente->VerRegistro();
+        $row = $queryCliente->VerRegistro();  
+        
+        
+        $idCache = "list_sports";
+        $listSports = $cache->get($idCache);
+        if($listSports == null) {
+            $sql = " SELECT id_deporte, nombre_deporte FROM deportes; ";
+            $query = new Consulta($sql);
+            $listSports = array();
+            $cnt = 0;
+            while ($data = $query->VerRegistro()) { 
+                $listSports[$cnt]['id_deporte'] = $data['id_deporte'];
+                $listSports[$cnt]['nombre_deporte'] = $data['nombre_deporte'];
+                $cnt++;
+            }
+            $cache->set($idCache, $listSports , 600);
+        }
         
         $includeFile = $this->config()->server->host . 'views/cuenta/mis-datos-cuenta.php';
-
         if (is_file($includeFile)) {
             include_once $includeFile;
         }

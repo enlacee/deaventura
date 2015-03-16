@@ -14,15 +14,16 @@
         </ul>
         
         <!-- TAB General-->
+<form class="form-horizontal" 
+      action="<?php echo _url_ ?>cuenta.php?cuenta=misdatos" 
+      method="post" enctype="multipart/form-data" 
+      accept-charset="utf-8" 
+      name="form_datos" 
+      id="form_datos" 
+      onsubmit="return validateCuentaMisDatosTab1(this)">
+    <input type="hidden" value="update" name="action">        
         <div id="tabs-1">
-            <form class="form-horizontal" 
-                  action="<?php echo _url_ ?>cuenta.php?cuenta=misdatos" 
-                  method="post" enctype="multipart/form-data" 
-                  accept-charset="utf-8" 
-                  name="form_datos" 
-                  id="form_datos" 
-                  onsubmit="return validate2(this, 'update')">
-                <input type="hidden" value="update" name="action">
+
                 
                 <div class="titulo-cuadrado">
                     <p class="titulo">Actualiza tus datos aquí</p>
@@ -108,28 +109,28 @@
                     </div>
                 </fieldset>
                 
-                
                 <div class="text-center">
                     <input type="submit" class="btn-lg btn-primary" value="Guardar Cambios"/>
                 </div>
                 
-              </form>
+              
         </div>
         
         <!-- TAB SPORT-->
         <div id="tabs-2">
-            <form class="form-horizontal">
+                
                 <fieldset class=" bloque1">
                     <div class='form-group '>
                         <div class="col-md-12">
-                            <label for="name">Practico Deportes de Aventura desde el Año:<span class="mini-letra-color">(opcional)</span></label>
+                            <label for="deporteDesde">Practico Deportes de Aventura desde el Año:<span class="mini-letra-color">(opcional)</span></label>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-control" name="sportAt" id="sportAt">
-                                <option>2015</option>
-                                <option>2014</option>
-                                <option>2013</option>
-                                <option>2012</option>
+                            <select class="form-control" name="deporteDesde" id="deporteDesde">
+                                <option value="">Elegir Año</option>
+                                <option value="2015" <?php echo ($row['deporte_desde'] == '2015') ? 'selected="selected"' : '' ?>>2015</option>
+                                <option value="2014" <?php echo ($row['deporte_desde'] == '2014') ? 'selected="selected"' : '' ?>>2014</option>
+                                <option value="2013" <?php echo ($row['deporte_desde'] == '2013') ? 'selected="selected"' : '' ?>>2013</option>
+                                <option value="2012" <?php echo ($row['deporte_desde'] == '2012') ? 'selected="selected"' : '' ?>>2012</option>
                             </select>
                         </div>
                     </div>
@@ -139,14 +140,18 @@
                 <fieldset class=" bloque1">
                     <div class='form-group '>
                         <div class="col-md-12">
-                            <label for="name">Mis Deportes de Aventura favoritos son:<span class="mini-letra-color">(opcional)</span></label>
+                            <label for="deporte">Mis Deportes de Aventura favoritos son:<span class="mini-letra-color">(opcional)</span></label>
                         </div>
                         
                         <div class="col-md-12">
-                            <span class="chk-item-deport"><input type="checkbox" id="inlineCheckbox1" value="1">4x4</span>
-                            <span class="chk-item-deport"><input type="checkbox" id="inlineCheckbox1" value="2">Andinismo</span>
-                            <span class="chk-item-deport"><input type="checkbox" id="inlineCheckbox1" value="3">Buceo</span>
-                            <span class="chk-item-deport"><input type="checkbox" id="inlineCheckbox1" value="4">Canotaje</span>
+                            <?php if (is_array($listSports) && count($listSports) > 0 ) : //var_dump($listSports);exit; ?>
+                                <?php foreach ($listSports as $key => $value) : ?>
+                                <span class="chk-item-deport">
+                                    <input type="checkbox" name="deporte" value="<?php echo $listSports[$key]['id_deporte'] ?>"
+                                           ><?php echo $listSports[$key]['nombre_deporte'] ?>
+                                </span>
+                                <?php endforeach;?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </fieldset>
@@ -154,9 +159,10 @@
                 <div class="text-center">
                     <input type="submit" class="btn-lg btn-primary" value="Guardar Cambios"/>
                 </div>
-            </form>
+            
         </div>
         
+</form>        
         <!-- TAB IMAGE-->
         <div id="tabs-3">
             

@@ -41,4 +41,18 @@ class MainModel
         return $this->config;
     }
     
+    public function getConfigCache() {
+
+        $cache = false;
+        $REAL_PATH = realpath(__DIR__ . '/../');
+        
+        if (is_file($REAL_PATH . '/utilities/phpfastcache-final/phpfastcache.php')) {
+            include $REAL_PATH . '/utilities/phpfastcache-final/phpfastcache.php';
+            // simple Caching with:
+            $cache = phpFastCache();            
+        }
+        
+        return $cache;
+    }
+    
 }
