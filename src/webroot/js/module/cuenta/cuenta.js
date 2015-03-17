@@ -7,18 +7,32 @@
 $(function () {
     // 01 : load image with efeect load
     $('#myCuentaFileupload').fileupload({
+        
         dataType: 'json',
         singleFileUploads : true,
         limitMultiFileUploads : 1,
         add: function (e, data) {
-            var sysPath = 'aplication/webroot/imgs/catalogo/aventuras_img_usuarios/' + data.files[0].name;
-            var pathImage = URLS.siteUrl + sysPath;
-            $('#myCuentaFilePathServer').val(sysPath);
-            $('#myCuentaImage').attr('src', pathImage); 
-            data.submit();
+            
+            // jqXHR
+            // data.files[0].name;
+            $('#myCuentaImage').attr('src', '');
+            
+            //data.submit();
+            var jqXHR = data.submit()
+                .success(function (result, textStatus, jqXHR) {
+                    var obj = result.files[0];
+                    $('#myCuentaImage').attr('src', obj.url);
+                    $('#myCuentaFilePathServer').val(obj.url);
+                })
+                .error(function (jqXHR, textStatus, errorThrown) {/* ... */})
+                .complete(function (result, textStatus, jqXHR) {/* ... */});
           
         },
         done: function (e, data) {
+            console.log('done', data);
+        },
+        always : function(e, data) {
+           console.log('always', data); 
         },
         progressall: function (e, data) {
             var progress = parseInt(data.loaded / data.total * 100, 10);

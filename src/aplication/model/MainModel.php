@@ -7,6 +7,8 @@
 class MainModel 
 {
     private $config;
+    // variable time expiration cache
+    const CACHE_TIME = 600;
     
     public function __construct() {
      
@@ -22,7 +24,7 @@ class MainModel
         $REAL_PATH = realpath(__DIR__ . '/../');
         
         if (is_file($REAL_PATH . '/inc.config.php')) {
-            include $REAL_PATH . '/inc.config.php';
+            include_once $REAL_PATH . '/inc.config.php';
         }
         
         if (isset($_config) && is_array($_config)) {
@@ -53,6 +55,13 @@ class MainModel
         }
         
         return $cache;
+    }
+    
+    /*
+     * get value time expiration cache
+     */
+    public static function getTimeCache() {
+        return self::CACHE_TIME;
     }
     
 }

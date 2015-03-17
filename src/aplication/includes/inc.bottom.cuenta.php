@@ -3,7 +3,7 @@
  * include in footer cuenta.php
  */
 ?>
-<?php if ($_GET['cuenta'] == 'misdatos2') : ?>
+<?php if ($_GET['cuenta'] == 'misdatos') : ?>
     <!-- adding editar datos
     <link rel="stylesheet" href="<?php echo _url_ ?>aplication/webroot/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" type="text/css">
     <script type="text/javascript" src="<?php echo _url_ ?>aplication/webroot/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>

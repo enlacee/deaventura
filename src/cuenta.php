@@ -33,18 +33,19 @@ if (!$cuenta->getLogeado()) {
                               $cuenta->cuentaAcceso($_GET["idFace"]);
                               break; */
                             case 'misdatos':
-                                if ($_POST['action'] == 'update') {
-                                    $cuenta->cuentaUpdate();
-                                }
                                 if ($_POST['action'] == 'update-tab1') {
                                     $cuenta->cuentaUpdate();
+                                } else if ($_POST['action'] == 'update-tab2') {
+                                    $cuenta->cuentaUpdateTab2();
+                                } else if ($_POST['action'] == 'update-tab3') {
+                                    $cuenta->cuentaUpdateTab3();
                                 }
                                 $cuenta->misdatos_cuenta();
                             break;
                             
-                            case 'misdatos2':
+                            /*case 'misdatos2':
                                 $cuenta->misdatos_cuenta2();
-                            break;
+                            break;*/
                         
                             case 'compartir':
                                 switch ($_POST['action']) {

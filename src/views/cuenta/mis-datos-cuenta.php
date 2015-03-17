@@ -1,5 +1,5 @@
 
-<div role="tabpanel" class="red">
+<div role="tabpanel" class="">
 
     <div class="titulo-for">
         <h2><span class="glyphicon glyphicon-user ico-account"></span> MI PERFIL</h2>
@@ -123,6 +123,16 @@
             </form>
         </div>
         <div role="tabpanel" class="tab-pane" id="two">
+            
+        <form class="form-horizontal" 
+          action="<?php echo _url_ ?>cuenta.php?cuenta=misdatos" 
+          method="post" enctype="multipart/form-data" 
+          accept-charset="utf-8" 
+          name="form_datos-tab2" 
+          id="form_datos-tab2" 
+          onsubmit="return validateCuentaMisDatosTab2(this)">
+        <input type="hidden" value="update-tab2" name="action">
+        
             <fieldset class=" bloque1">
                 <div class='form-group '>
                     <div class="col-md-12">
@@ -151,10 +161,8 @@
                     <div class="col-md-12">
                         <?php if (is_array($listSports) && count($listSports) > 0 ) : ?>
                             <?php foreach ($listSports as $key => $value) : ?>
-                            <span class="chk-item-deport">
-                                <input type="checkbox" name="deporte_favorito[]" value="<?php echo $listSports[$key]['id_deporte'] ?>"><?php echo $listSports[$key]['nombre_deporte'] ?>
-                            </span>
-                            <?php endforeach;?>
+                        <span class="chk-item-deport"><input type="checkbox" name="deporte_favorito[]" <?php echo ($listSports[$key]['checked']==true) ? ' checked' : '' ?> value="<?php echo $listSports[$key]['id_deporte'] ?>"><?php echo $listSports[$key]['nombre_deporte'] ?></span>
+                            <?php endforeach; ?>
                         <?php else: ?>
                             <span class="chk-item-deport">No existen deportes para mostrar.</span>
                         <?php endif; ?>
@@ -173,41 +181,59 @@
             <div class="text-center">
                 <input type="submit" class="btn-lg btn-primary" value="Guardar Cambios"/>
             </div>
+        
+        </form>
         </div>
         
         <div role="tabpanel" class="tab-pane" id="three">
-            <div class="titulo-cuadrado">
-                <p class="titulo">Tu Foto</p>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <img id='myCuentaImage' src="https://graph.facebook.com/<?php echo $this->_cliente->__get("_idFacebook") ?>/picture?type=large" width="200px" height="200PX">
-                    <br /><br />
-                </div>
-                <div class="col-md-8">                    
-                    <fieldset class="bloque1" >
-                        <h2>Sube una foto aquí:</h2><br />
-                        <div class="text-center">                            
-                            <span class="btn  btn-lg fileinput-button">
-                                <span>Subir Foto</span>
-                                <!-- The file input field used as target for the file upload widget -->
-                                <input id="myCuentaFileupload" type="file" name="files[]" data-url="<?php _url_?>aplication/utilities/fileUpload/server/" multiple>
-                                <input id="myCuentaFilePathServer" type="hidden" value=""/>
-                            </span>
-                            <br>
-                            <br>
-                            <!-- The global progress bar -->
-                            <div id="progress" class="progress">
-                                <div class="progress-bar progress-bar-success"></div>
-                            </div>
-                        </div>
-                    </fieldset>
+            <form class="form-horizontal" 
+              action="<?php echo _url_ ?>cuenta.php?cuenta=misdatos" 
+              method="post" enctype="multipart/form-data" 
+              accept-charset="utf-8" 
+              name="form_datos-tab3" 
+              id="form_datos-tab3" 
+              onsubmit="return validateCuentaMisDatosTab3(this)">
+                <input type="hidden" value="update-tab3" name="action">
 
-                    <div class="text-center">
-                        <input type="submit" class="btn-lg btn-primary" value="Guardar Cambios"/>
-                </div>                    
-            </div>
-        </div>
+                <div class="titulo-cuadrado">
+                    <p class="titulo">Tu Foto</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div>
+                        <?php if (!empty($row['image'])) : ?>
+                            <img id='myCuentaImage' src="<?php echo _url_files_users_ . $row['image'] ?>" width="200px" height="200px">
+                        <?php else: ?>
+                            <img id='myCuentaImage' src="https://graph.facebook.com/<?php echo $this->_cliente->__get("_idFacebook") ?>/picture?type=large" width="200px" height="200px">
+                        <?php endif; ?>
+                        </div>
+                        <br /><br />
+                    </div>
+                    <div class="col-md-8">                    
+                        <fieldset class="bloque1" >
+                            <h2>Sube una foto aquí:</h2><br />
+                            <div class="text-center">                            
+                                <span class="btn  btn-lg fileinput-button">
+                                    <span>Subir Foto</span>
+                                    <!-- The file input field used as target for the file upload widget -->
+                                    <input id="myCuentaFileupload" type="file" name="files[]" data-url="<?php _url_?>aplication/utilities/fileUpload/server/index.php" multiple>
+                                    <input id="myCuentaFilePathServer" name="myCuentaFilePathServer" type="hidden" value=""/>
+                                </span>
+                                <br>
+                                <br>
+                                <!-- The global progress bar -->
+                                <div id="progress" class="progress">
+                                    <div class="progress-bar progress-bar-success"></div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="text-center">
+                            <input type="submit" class="btn-lg btn-primary" value="Guardar Cambios"/>
+                        </div>                    
+                    </div>
+                </div>
+            </form>
         </div>
     
     </div>

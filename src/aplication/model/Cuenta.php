@@ -132,35 +132,9 @@ class Cuenta extends MainModel {
 
     /**
      * Update accound perfil (tab1)
+     * @return void
      */
     public function cuentaUpdate() {
-        
-        $imagen = "";
-        /*
-        if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != "") {
-
-            $query = new Consulta("SELECT image FROM clientes WHERE id_cliente = '" . $this->_cliente->__get("_id") . "'");
-            $row = $query->VerRegistro();
-
-            if ($row['image'] != '') {
-                $nombre_ant = _host_files_users_ . $row['image'];
-                if (file_exists($nombre_ant)) {
-                    unlink($nombre_ant);
-                }
-            }
-
-            $ext = explode('.', $_FILES['image']['name']);
-            $nombre_file = time() . sef_string($ext[0]);
-            $type_file = typeImage($_FILES['image']['type']);
-            $nombre = $nombre_file . $type_file;
-
-            define("NAMETHUMB", "/tmp/thumbtemp");
-            $thumbnail = new ThumbnailBlob(NAMETHUMB, _host_files_users_);
-            $thumbnail->CreateThumbnail(90, 90, $nombre);
-
-            $imagen = ", image = '" . $nombre . "'";
-        }
-        */
 
         $sql = "UPDATE clientes SET 
                     nombre_cliente='" . addslashes($_POST['name']) . "',
@@ -180,17 +154,98 @@ class Cuenta extends MainModel {
     }
     
     /**
-     * Update accound perfil (tab1)
+     * Update accound perfil (tab2 : data deporte)
+     * @return void
      */    
     public function cuentaUpdateTab2() {
-
+    
+        $deporteFavorito = $this->_formatedDeporteFavorito($_POST['deporte_favorito']);
+        
         $sql = "UPDATE clientes SET 
-                    deporte_desde = '" . addslashes($_POST['deporte_desde']) . "',
-                    deporte_favorito='" . addslashes($_POST['deporte_favorito']) . "',
+                    deporte_desde = '" . ($_POST['deporte_desde']) . "',
+                    deporte_favorito='" . ($deporteFavorito) . "',
                     deporte_equipo_que_utilizo = '" . $_POST['deporte_equipo_que_utilizo'] . "'                    
                 WHERE id_cliente='" . $this->_cliente->__get("_id") . "' ";
 
         $query = new Consulta($sql);
+    }
+    
+    /**
+     * Update accound perfil (tab3 : data image)
+     * @return void
+     */    
+    public function cuentaUpdateTab3() {
+       
+        $urlImage = $_POST['myCuentaFilePathServer'];
+        
+        if (!empty($urlImage)) {
+            $urlImage = urldecode($urlImage);
+            $arrayImage = explode(_url_, $urlImage);
+            $pathImage = $arrayImage[1];
+            
+            if (strpos($pathImage, '/',0) >= 0 ) {
+                $pathImage = substr($pathImage, 1,(strlen($pathImage)));
+            }
+
+            // step 02
+            $meImage = $this->config()->server->host . $pathImage;
+            $meNewImage = _host_files_users_;
+            $flag = false;
+            if (is_file($meImage)) {
+                $ext = pathinfo($meImage, PATHINFO_EXTENSION);
+                $baseName = basename($meImage, '.'.$ext);
+                $nombre_file = time() . sef_string($baseName) . '.' . $ext;
+
+                //$filePathOut = str_replace("$baseName.$ext", $nombre_file, $meImage);
+                $filePathOut = $meNewImage . $nombre_file;
+                // create and delete image
+                ThumbnailBlob::makeThumbnails($meImage, $filePathOut, 200, 200);
+                unlink($meImage);
+                $flag = $nombre_file;
+            }
+            
+            // step 03
+            if ($flag) {
+                $sql = "UPDATE clientes SET image = '{$flag}'                  
+                        WHERE id_cliente='" . $this->_cliente->__get("_id") . "' ";
+                $query = new Consulta($sql);
+            }
+            
+        }
+        
+        
+    }
+    
+
+    
+    /*
+     * format (string to array)
+     * REGEX (,) 'texto 1, texto 2'
+     * @return mix (false or array)
+     */
+    private function _formatedEquipoQueUtilizo($string) {
+        
+        $newArray = false;
+        if (!empty($string)) {
+            if (preg_match('#,#', $string)) {
+                $newArray = preg_split('#,#', $string);
+            }
+        }
+
+        return $newArray;
+    }
+    
+    /*
+     * Format data to serial
+     * @return Array|Boolean
+     */
+    private function _formatedDeporteFavorito($array) {
+        $dataSerial = false;
+        if (!empty($array) && count($array > 0)) {
+            $dataSerial = serialize($array);
+        }
+        
+        return $dataSerial;
     }
     
     /*
@@ -326,78 +381,22 @@ class Cuenta extends MainModel {
         <?php
     }
     
-    public function misdatos_cuenta() {
 
-        $sql_cliente = " SELECT * FROM clientes WHERE id_cliente = '" . $this->_cliente->__get("_id") . "' ";
-        $queryCliente = new Consulta($sql_cliente);
-        $row = $queryCliente->VerRegistro();
-        ?>
-        <div id="steps">
-            <div id="titu_step"> <span class="glyphicon glyphicon-user"></span> Mi Cuenta</div>
-<!--            <ul class="nav nav-tabs" role="tablist">
-                  <li role="presentation" class="active"><a href="#">Mis Datos</a></li>
-                  <li role="presentation"><a href="#">Mis Equipo </a></li>
-                  <li role="presentation"><a href="#">Messages</a></li>
-                </ul>-->
-            <div id="panel_step">
-                
-                <form action="cuenta.php?cuenta=misdatos" method="post" enctype="multipart/form-data" accept-charset="utf-8" name="form_datos" id="form_datos" onsubmit="return validate2(this, 'update')">
-                    <input type="hidden" value="update" name="action">
-                    <div id="div_input1">
-                        <div class="rowElem"><label>Nombres: </label><input name="name" id="name" type="text" value="<?php echo $row['nombre_cliente'] ?>" size="23" placeholder="Nombre" /></div>
-                        <div class="rowElem"><label>Apellidos: </label><input name="lastname" id="lastname" type="text" value="<?php echo $row['apellidos_cliente'] ?>" size="23"  placeholder="Apellidos" ></div>
-                        <div class="rowElem"><label>E-mail: </label><input name="email" id="email" type="text" value="<?php echo $row['email_cliente'] ?>" size="23" placeholder="email" ></div>
-                        <div class="rowElem">
-                            <label>Sexo: </label> 
-                            <span class="radio-inline">
-                              <input type="radio" name="sexo" id="inlineRadio2" value="M"<?php if ($row['sexo_cliente'] == 'M') echo 'checked="checked"' ?>> Hombre
-                            </span>
-                            <span class="radio-inline">
-                              <input type="radio" name="sexo" id="inlineRadio3" value="F" <?php if ($row['sexo_cliente'] == 'F') echo 'checked="checked"' ?>> Mujer
-                            </span>
-                        </div>
-                        <div class="rowElem">
-                            <label>Foto: </label>
-                            <div class="radio-inline foto_perfil">
-                                <input type="radio" name="foto" value="F" id="foto_0" <?php if ($row['tipo_foto_cliente'] == 'F') echo 'checked="checked"' ?> >Usar foto de Facebook
-                                <div class="foto_face"><img src="https://graph.facebook.com/<?php echo $this->_cliente->__get("_idFacebook") ?>/picture" width="50" height="50"></div>
-                            </div>
-                            <div class="radio-inline " style="margin-left:50px">
-                                <input type="radio" name="foto" value="C" id="foto_1" <?php if ($row['tipo_foto_cliente'] == 'C') echo 'checked="checked"' ?> >Usar otra foto:
-                                <?php if ($row['image'] != "" || file_exists(_url_files_users_ . $row['image'])) { ?>
-                                    <div class="foto_face"><img src="<?php echo _url_files_users_ . $row['image'] ?>" width="50" height="50"></div>
-                                <?php } ?>
-                                <div class="custom-input-file">
-                                    <input type="file" name="image" id="image" class="input-file" />
-                                    + Subir foto..
-                                </div>​
-                                <div class="archivo">...</div>
-                            </div>
-                        </div>
-
-                        <div class="clear"></div>
-                    </div>
-                    <div class="pnl_btn" align="center"><input class="btn btn_guardar" type="submit" value="Guardar Cambios"></div>
-                </form>
-                <div class="clear"></div>
-            </div>
-
-        </div>
-        <?php
-    }
 	    
-    
-    public function misdatos_cuenta2() {
-        
+    /*
+     * Vew data (perfil aventurero)
+     */
+    public function misdatos_cuenta() {
+         
         $cache = $this->getConfigCache();        
         
         $sql_cliente = " SELECT * FROM clientes WHERE id_cliente = '" . $this->_cliente->__get("_id") . "' ";
         $queryCliente = new Consulta($sql_cliente);
-        $row = $queryCliente->VerRegistro();  
-        
+        $row = $queryCliente->VerRegistro();
         
         $idCache = "list_sports";
         $listSports = $cache->get($idCache);
+        
         if($listSports == null) {
             $sql = " SELECT id_deporte, nombre_deporte FROM deportes; ";
             $query = new Consulta($sql);
@@ -408,16 +407,41 @@ class Cuenta extends MainModel {
                 $listSports[$cnt]['nombre_deporte'] = $data['nombre_deporte'];
                 $cnt++;
             }
-            $cache->set($idCache, $listSports , 600);
+            $cache->set($idCache, $listSports , MainModel::CACHE_TIME);
         }
+        
+        $listSports = $this->_checkOutDeporteFavorito($listSports, $row['deporte_favorito']);
         
         $includeFile = $this->config()->server->host . 'views/cuenta/mis-datos-cuenta.php';
         if (is_file($includeFile)) {
             include_once $includeFile;
         }
-        ?>
 
-        <?php
+    }
+    
+    /*
+     * Get deport favorite including to flag in result array ['checked'] = true
+     * @return Array data refactor array
+     */
+    private function _checkOutDeporteFavorito($listSports, $dataDeporteFavorito) {
+        $df = unserialize($dataDeporteFavorito);
+        $rs = false;
+        if (is_array($listSports) && count($listSports > 0)
+                && !empty($df) && strlen($df > 2)) {
+            
+            foreach ($df as $key => $value) {
+                foreach ($listSports as $indice => $valor) {
+                    if ($df[$key] == $listSports[$indice]['id_deporte']) {
+                        $listSports[$indice]['checked'] = true;
+                        break;
+                    }
+                }
+            }
+            
+            $rs = $listSports;
+        }
+        
+        return $rs;
     }
 	
 	
