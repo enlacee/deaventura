@@ -87,19 +87,20 @@ function validateCuentaMisDatosTab1(form) {
         return false;
     }
     
-    if (false /*form.fecha_nacimiento_cliente.value == ''*/) {
-        inlineMsg('birthday', 'Debe ingresar una fecha de cumpleaños valido', 2);
-        return false;
-    }
+    if (form.fecha_nacimiento_cliente.value != '') {
+        var patternBd =/^([0-9]{2})\-([0-9]{2})\-([0-9]{4})$/;
+        if (!patternBd.test(form.fecha_nacimiento_cliente.value)) {
+            inlineMsg('birthday', 'Formato fecha de Nacimiento incorrecto [dia-mes-año]', 4);
+            return false;
+        }
 
-    if (false/*form.direccion.value == ''*/) {
-        inlineMsg('birthday', 'Debe ingresar su dirección', 2);
-        return false;
     }
     
-    if (false/*form.telefono.value == ''*/) {
-        inlineMsg('telefono', 'Debe ingresar telefono', 2);
-        return false;
+    if (form.telefono.value != '') {
+        if (form.telefono.value.length != 9) {
+            inlineMsg('telefono', 'Debe ingresar un telefono de 9 digitos', 2);
+            return false;     
+        }
     }
     
     // validation checkbox deportes
@@ -109,3 +110,14 @@ function validateCuentaMisDatosTab1(form) {
 function validateCuentaMisDatosTab2(form) {
     
 }
+
+
+// #############
+// Initialize
+
+// block leeter and number for date (fecha nacimiento)
+    document.querySelector(".disabledKeyDate").addEventListener("keypress", function (evt) {
+        if (evt.which < 48 && evt.which!=45 || evt.which > 57){
+            evt.preventDefault();
+        }
+    }); 

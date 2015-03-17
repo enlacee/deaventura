@@ -19,19 +19,11 @@ if (!$cuenta->getLogeado()) {
 }
 ?>
 <body>
-    
-  <script>
-  $(function() {
-        $( "#tabs" ).tabs();
-    
-  });
-  </script>
-
     <div id="window">
         <div id="pagina">
             <?php include (_includes_ . "inc.top.php"); ?>
 
-            <div id="cuerpo_cuenta">
+            <div class="container" id="cuerpo_cuenta">
                 <?php
                 if ($cuenta->getLogeado()) {
 				
@@ -42,6 +34,9 @@ if (!$cuenta->getLogeado()) {
                               break; */
                             case 'misdatos':
                                 if ($_POST['action'] == 'update') {
+                                    $cuenta->cuentaUpdate();
+                                }
+                                if ($_POST['action'] == 'update-tab1') {
                                     $cuenta->cuentaUpdate();
                                 }
                                 $cuenta->misdatos_cuenta();

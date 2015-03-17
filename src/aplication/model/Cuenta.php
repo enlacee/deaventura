@@ -130,10 +130,13 @@ class Cuenta extends MainModel {
         }
     }
 
+    /**
+     * Update accound perfil (tab1)
+     */
     public function cuentaUpdate() {
-        echo "<pre>"; print_r(print_r($_POST)); exit;
-
+        
         $imagen = "";
+        /*
         if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != "") {
 
             $query = new Consulta("SELECT image FROM clientes WHERE id_cliente = '" . $this->_cliente->__get("_id") . "'");
@@ -157,29 +160,43 @@ class Cuenta extends MainModel {
 
             $imagen = ", image = '" . $nombre . "'";
         }
+        */
 
         $sql = "UPDATE clientes SET 
                     nombre_cliente='" . addslashes($_POST['name']) . "',
                     apellidos_cliente='" . addslashes($_POST['lastname']) . "',
                     sexo_cliente='" . $_POST['sexo'] . "',
                     tipo_foto_cliente='" . $_POST['foto'] . "',
-                    email_cliente='" . addslashes($_POST['email']) . "'
-                    " . $imagen . ",
-                    fecha_nacimiento_cliente = '". $_POST['birthday'] ."',
-                    direccion = '". $_POST['direccion'] ."',
+                    email_cliente='" . addslashes($_POST['email']) . "',
+                    fecha_nacimiento_cliente = '". $_POST['fecha_nacimiento_cliente'] ."',
+                    vivo_en = '". $_POST['vivo_en'] ."',
                     telefono = '". $_POST['telefono'] ."',
-                    deporte_desde = '". $_POST['deporteDesde'] ."',
-                    deporte = ''
+                    describete = '". $_POST['describete'] ."'
+                    
                 WHERE id_cliente='" . $this->_cliente->__get("_id") . "' ";
 
         $query = new Consulta($sql);
         // location("cuenta.php?cuenta=misdatos");
     }
     
+    /**
+     * Update accound perfil (tab1)
+     */    
+    public function cuentaUpdateTab2() {
+
+        $sql = "UPDATE clientes SET 
+                    deporte_desde = '" . addslashes($_POST['deporte_desde']) . "',
+                    deporte_favorito='" . addslashes($_POST['deporte_favorito']) . "',
+                    deporte_equipo_que_utilizo = '" . $_POST['deporte_equipo_que_utilizo'] . "'                    
+                WHERE id_cliente='" . $this->_cliente->__get("_id") . "' ";
+
+        $query = new Consulta($sql);
+    }
+    
     /*
      * Validate and return array data accounts (perfil)
      */
-    private function extraFieldsCuenta($post) {
+    private function _getExtraFieldsCuenta($post) {
         
         $data = array();
         if (is_array($post) && count($post) > 0) {

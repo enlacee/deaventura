@@ -19,3 +19,8 @@ CHANGE `deporte` `deporte_favorito` tinytext COLLATE 'utf8_unicode_ci' NULL AFTE
 ADD `deporte_equipo_que_utilizo` varchar(255) COLLATE 'utf8_unicode_ci' NULL,
 ADD `describete` tinytext COLLATE 'utf8_unicode_ci' NULL AFTER `deporte_equipo_que_utilizo`,
 ADD `nivel` char(1) COLLATE 'utf8_unicode_ci' NULL AFTER `describete`;
+
+/**/
+ALTER TABLE `clientes`
+CHANGE `direccion` `vivo_en` varchar(30) COLLATE 'utf8_unicode_ci' NULL AFTER `fecha_nacimiento_cliente`,
+COMMENT='';
