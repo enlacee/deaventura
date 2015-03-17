@@ -5,13 +5,11 @@
 .red {
     border:1px solid red;
 }
-
 /* styles form */
 .titulo-cuadrado{
-    padding: 12px 0px;
-    margin-bottom: 10px;
+    padding: 10px 0px;
+    margin-bottom: 5px;
 }
-
 .titulo-cuadrado .titulo{
     font-size: 22px !important;
     font-family: 'robotoregular';
@@ -19,7 +17,6 @@
 .top-span{
     margin-top:12px;
 }
-
 .titulo-cuadrado p{
     margin: 0px !important;
     padding: 0px !important;
@@ -34,13 +31,15 @@
 margin: 0;
 padding: 0;
 }
-form label {
+form label, label {
     width: inherit;
     text-align: left;
 }
+.tab-pane {
+    margin: 5px 20px;
+}
 /* block */
-.bloque1{
-    
+.bloque1{    
     background: none repeat scroll 0% 0% #F4F9FE;
     border: 1px solid #D2E9FB;
     padding: 10px 25px;
@@ -59,7 +58,6 @@ form label {
 .chk-item-deport input[type=checkbox] {
     margin-right: 5px;
 }
-
 .ico-account {
     color : #1c94c4;
 }
