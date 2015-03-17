@@ -558,15 +558,15 @@
 ---------------USUARIO CONTENIDO----------------
 ------------------------------------*/
 #cuerpo_cuenta{
-        width: 1024px; 
-	margin: 0;
-	padding:0;
-        clear: both;
-        margin: 0px auto 15px;
-        overflow: hidden; 
-	color: #555555;
-        margin-top:60px;
-        padding: 3rem 2rem;
+    max-width: 1024px; 
+    margin: 0;
+    padding:0;
+    clear: both;
+    margin: 0px auto 15px;
+    overflow: hidden; 
+    color: #555555;
+    margin-top:60px;
+    padding: 3rem 2rem;
 }
 #steps{
 	margin: 0px 10px;
