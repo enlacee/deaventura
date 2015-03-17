@@ -164,13 +164,14 @@ if (!$cuenta->getLogeado()) {
                 }
                 ?>
             </div>
-            <div id="footer_usu">
-                <div id="footer">
-                    <p>© 2014. De Aventura. Todos los derechos reservados.</p>
-                    <p>Desarrollado por Develoweb</p>
+
+            <div class="footer-user container">
+                <div clas="row">
+                <div class="col-md-6">© 2015. De Aventura. Todos los derechos reservados.</div>
+                <div class="col-md-6">Desarrollado por Develoweb</div>
                 </div>
             </div>
-            <div class="clear"></div>
+
         </div> 
     </div>
     <?php

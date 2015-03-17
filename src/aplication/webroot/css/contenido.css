@@ -1181,21 +1181,8 @@
         
 /*-------------------
 --------Footer-------
----------------------*/
-#footer_usu {
-    height:20px;
-    margin:0px auto 20px auto;
-    color: #999;
-    font-size: 0.80em;
-    font-weight: 200;
-}
-#footer_usu p:first-child{
-    float: left;
-}
-#footer_usu p:last-child,#footer_usu p.last-child{
-    float: right;
-}      
-        
+---------------------*/ 
+
 
 @media (min-width:360px) and (max-width:924px){
     
