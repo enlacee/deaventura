@@ -1146,22 +1146,22 @@
 	float: left;
 	margin-right: 5px;
 }
-	.id_persona img{
-		vertical-align: middle;
-		margin-right: 6px;
-	}
-	.favoritos{
-		font-size: 13px;
-		margin-top: 5px;
-		color: #999999;
-	}
-		.favoritos img{vertical-align: middle;padding-right: 5px;}
+.id_persona img{
+    vertical-align: middle;
+    margin-right: 6px;
+}
+.favoritos{
+    font-size: 13px;
+    margin-top: 5px;
+    color: #999999;
+}
+.favoritos img{vertical-align: middle;padding-right: 5px;}
 
-	#panel_step .elim_favoritos{
-		color: #A2A2A2;
-		margin-top: 8px;
-		display: block;
-	}
+#panel_step .elim_favoritos{
+    color: #A2A2A2;
+    margin-top: 8px;
+    display: block;
+}
 
 
 /*Mapa sitio*/
@@ -1173,32 +1173,28 @@
     margin: 0px;
 }        
 #mapa_sitio section{
-	margin: 40px 25px; 
-        padding: 20px;
-        background-color:#ffffff;
+    margin: 40px 25px; 
+    padding: 20px;
+    background-color:#ffffff;
 }
         
         
 /*-------------------
 --------Footer-------
 ---------------------*/
-#footer_usu{
-	width:1040px;
-	height:20px;
-	margin:0px auto 20px auto;
-	color: #999;
-        font-size: 0.80em;
-        font-weight: 200;
+#footer_usu {
+    height:20px;
+    margin:0px auto 20px auto;
+    color: #999;
+    font-size: 0.80em;
+    font-weight: 200;
 }
-	#footer_usu p:first-child{
-		float: left;
-	}
-	#footer_usu p:last-child,#footer_usu p.last-child{
-		float: right;
-	}
-        
-        
-        
+#footer_usu p:first-child{
+    float: left;
+}
+#footer_usu p:last-child,#footer_usu p.last-child{
+    float: right;
+}      
         
 
 @media (min-width:360px) and (max-width:924px){
