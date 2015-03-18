@@ -28,4 +28,5 @@ error_log
 ## yes follow
 !/aplication/webroot/imgs/logo_deaventura.png
 
-/docs/design/*.psd
+/docs/design/
+!/docs/design/*.zip
