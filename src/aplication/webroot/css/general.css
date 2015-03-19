@@ -95,8 +95,8 @@ div.rowElem i{ font-size: 70% }
 *
 */
 .red {
-    border: 1px solid red;
+    border: 0px solid red;
 }
 .blue {
-    border:1px solid blue;
+    border:0px solid blue;
 }

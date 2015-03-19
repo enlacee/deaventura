@@ -28,6 +28,13 @@ $secciones = new Secciones($cuenta, new Deporte());
         <!-- [if lt IE 9]
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js" > </script>
         <![endif] -->
+    
+        <script src="<?php echo _url_ ?>aplication/webroot/plugins/jquery/jquery-1.8.2.min.js" type="text/javascript"></script>
+        <script src="<?php echo _url_ ?>aplication/webroot/plugins/jquery/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+            <script type="text/javascript">
+        App.initAppFacebook();
+    </script>
+        <script src="<?php echo _url_ ?>aplication/webroot/js/js.js" type="text/javascript" ></script>
     </head>
 <body>
     <div id="fb-root"></div>
@@ -84,9 +91,8 @@ $secciones = new Secciones($cuenta, new Deporte());
 
         </div> 
     </div>
-    <script type="text/javascript">
-        App.initAppFacebook();
-    </script>
+    
+
     <script src="http://assets.pinterest.com/js/pinit.js"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js">

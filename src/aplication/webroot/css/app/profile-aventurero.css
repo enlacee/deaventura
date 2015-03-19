@@ -17,9 +17,80 @@ and open the template in the editor.
     color: #253f72;
 }
 
+/** ICONS **/
+.ico-profile {
+    padding-left:25px;
+    display: inline-block;
+    height: 16px;
+    width: 16px; 
+}
+.ico-profile-location  {
+    background: transparent url('../../imgs/profile-location.png') no-repeat top left;
+}
+.ico-profile-compass  {
+    background: transparent url('../../imgs/profile-compass.png') no-repeat top left;
+}
+.ico-profile-star {
+    background: transparent url('../../imgs/profile-star.png') no-repeat top left;
+}
+
+.ico-sport {
+    
+    display: inline-block;
+    height: 24px;
+    width: 24px; 
+    margin-bottom: -5px;
+}
+.ico-sport-1 {
+    background: transparent url('../../imgs/catalogo/andinismo.png') no-repeat top left;
+}
+.ico-sport-2 {
+    background: transparent url('../../imgs/catalogo/4x4.png') no-repeat top left;
+}
+.ico-sport-3 {
+    background: transparent url('../../imgs/catalogo/buceo.png') no-repeat top left;
+}
+.ico-sport-4 {
+    background: transparent url('../../imgs/catalogo/puenting.png') no-repeat top left;
+    
+}
+.ico-sport-5 {
+    background: transparent url('../../imgs/catalogo/canotaje.png') no-repeat top left;
+}
+.ico-sport-6 {
+    background: transparent url('../../imgs/catalogo/ciclismo.png') no-repeat top left;
+}
+.ico-sport-7 {
+    background: transparent url('../../imgs/catalogo/escalada.png') no-repeat top left;
+}
+.ico-sport-8 {
+    background: transparent url('../../imgs/catalogo/parapente.png') no-repeat top left; 
+}
+.ico-sport-9 {
+    background: transparent url('../../imgs/catalogo/sandboard.png') no-repeat top left; 
+}
+.ico-sport-10 {
+    background: transparent url('../../imgs/catalogo/snowboard.png') no-repeat top left;
+}
+.ico-sport-11 {
+    background: transparent url('../../imgs/catalogo/surf.png') no-repeat top left;
+}
+.ico-sport-12 {
+    background: transparent url('../../imgs/catalogo/trekking.png') no-repeat top left;
+}
+.ico-sport-13 {
+    background: transparent url('../../imgs/catalogo/triatlon.png') no-repeat top left;
+}
+.ico-sport-14 {
+    background: transparent url('../../imgs/catalogo/trail-running.png') no-repeat top left;
+}
+.ico-sport-15 {
+    background: transparent url('../../imgs/catalogo/otros-deportes.png') no-repeat top left;
+}
+
 /* Css perfil aventurero */
 .av-profile-top {
-    
+ 
 }
 
 .me-image{
@@ -27,10 +98,9 @@ and open the template in the editor.
     height: 74px;
     background-color: yellow;
 
-
 }
 .me-level {
-    background: transparent url('../../imgs/nivel-aventurero.png') no-repeat top;
+    background: transparent url('../../imgs/nivel.png') no-repeat left;
     width: 40px;
     display: inline-block;
     line-height: 37px;
@@ -98,6 +168,13 @@ padding: 16px;
   line-height: 42px;
   
 }
+.profile-body {
+    
+}
+
+.profile-body > .col-md-6 {
+    padding-left: 0;
+}
 
 .aventurero, h2 ,h3 {
     color:#253f72;
@@ -111,6 +188,7 @@ padding: 16px;
     color: #253f72;
     margin: 0px 0px 5px 0px;
     padding: 1% 10%;
+    min-width: 180px;
 }
 .btn-sport-blue {
     background-color: #E8EDF1;
@@ -118,7 +196,8 @@ padding: 16px;
     border-radius: 5px;
     color: #253f72;
     margin: 0px 0px 5px 0px;
-padding:1% 7%
+    min-width: 200px;
+    /*padding:1% 7%;*/
 }
 
 .btn-sport-blue-small {
@@ -127,14 +206,22 @@ padding:1% 7%
     border-radius: 5px;
     color: #253f72;
     margin: 0px 0px 5px 0px;
-    
-      font-style: italic;
-      padding: 0.5% 4%;
+    font-style: italic;
+    /*padding: 0.5% 4%;*/
+    min-width: 180px;
 }
 
+.aventurero {
+color: black;
+    
+}
+.aventurero #pagina {
+    color:black;
+}
 .aventurero .row {
+    /*
       margin: 0;
-  padding: 0;
+  padding: 0;*/
 }
 .aventurero, h2 {
 
@@ -163,13 +250,34 @@ ul.mis-datos li{
 
     background: rgba(255, 255, 255, 0.9);
     margin-top: 62px;
+    border: 1px solid #DDD;
+}
+
+@media (min-width: 1200px) {
+    
+    .mymody {
+        width: 1236px;
+    }
 }
 
 
+.text-size-1 {
+    
+}
 
+.text-size-2 {
+    
+}
+.text-size-3 {
+    
+}
+.text-size-4 {
+    font-size: 1em;
+}
 
-
-
+.text-size-5 {
+    font-size: 0.80em;
+}
 
 
 
