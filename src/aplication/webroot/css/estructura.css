@@ -246,7 +246,7 @@ nav li a{font-size: 14px;font-family: "Roboto",sans-serif;font-weight:320;}
 	display: none;
 }
 
-#cuerpo{
+#cuerpo, .cuerpo{
 /*	width: 1080px;
 	min-height: 350px;*/
 	margin: 0;

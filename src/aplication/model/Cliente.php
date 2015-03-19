@@ -13,6 +13,8 @@ class Cliente {
     private $_logeado = FALSE;
     private $_tipo_usuario;
     private $_agencia;
+    //adding
+    private $_describete;
 
     public function __construct($id = 0) {
         $this->_id = $id;
@@ -31,6 +33,14 @@ class Cliente {
                 $this->_email       = $row['email_cliente'];
                 $this->_url         = $row['url_cliente'];
                 $this->_tipo_usuario= $row['tipo_cliente'];
+                
+                $this->_describete  = $row['describete'];
+                $this->_vivo_en     = $row['vivo_en'];
+                $this->_telefono    = $row['telefono'];
+                $this->_deporte_desde    = $row['deporte_desde'];
+                $this->_deporte_favorito = $row['deporte_favorito'];
+                $this->_deporte_equipo_que_utilizo = $row['deporte_equipo_que_utilizo'];
+                $this->_nivel = $row['nivel'];
             }
             
             $sql_agencia = "SELECT * FROM clientes_agencias WHERE id_cliente = '".$this->_id."'";

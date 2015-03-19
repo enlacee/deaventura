@@ -332,13 +332,6 @@
             line-height: 1.3em;
         }
 
-	#foto{
-		width: 100px;
-		height: 100px;
-		display: inline-block;
-		margin-right: 10px;
-		overflow: hidden;
-	}
 	#info #nombre{
 		font-size: 15px;
 		color: #3592cc;
@@ -1265,14 +1258,14 @@
 }
 
 @media only screen and (min-width: 600px){  
-	#cuerpo{
+	#cuerpo, .cuerpo{
 		width:602px
 	}
         
 }
 
 @media (min-width:800px) and (max-width:924px){ /* MIO */
-	#cuerpo{
+	#cuerpo, .cuerpo{
 		width:780px
 	}
         #panel_right{
@@ -1290,7 +1283,7 @@
 }
 
 @media only screen and (min-width: 925px), only screen and (device-width: 768px){
-	#cuerpo{
+	#cuerpo, .cuerpo{
 		width:903px
 	}
         .panel2{
@@ -1302,7 +1295,7 @@
 }
 
 @media only screen and (min-width: 1204px){
-	#cuerpo{
+	#cuerpo, .cuerpo{
 		width:1204px
 	}
         .panel2{
@@ -1313,32 +1306,32 @@
 }
 
 @media only screen and (min-width: 1505px){
-	#cuerpo{
+	#cuerpo, .cuerpo{
 		width:1505px
 	}
 
 }
 
 @media only screen and (min-width: 1806px){
-    #cuerpo{
+    #cuerpo, .cuerpo{
             width:1806px
     }
 }
 
 @media only screen and (min-width: 2107px){
-    #cuerpo{
+    #cuerpo, cuerpo{
             width:2107px
     }
 }
 
 @media only screen and (min-width: 2408px){
-	#cuerpo{
+	#cuerpo, cuerpo{
 		width:2408px
 	}
 }
 
 @media (min-width:768px) and (max-width:880px){
-    #cuerpo{
+    #cuerpo, cuerpo{
             margin-top:120px !important;
     }
     

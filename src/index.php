@@ -84,7 +84,7 @@ $secciones = new Secciones($cuenta, $deporte);
                     $secciones->busqueda();
                 }else if ($_GET['mod']) {
                     $secciones->deportes_modalidad();
-                }else if ($_GET['cliente']) {
+                }else if ($_GET['cliente']) {;
                     $secciones->deportes_cliente();
                 }else if ($_GET['cat']) {
                     $secciones->deportes_categoria();

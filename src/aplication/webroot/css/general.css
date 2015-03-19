@@ -87,3 +87,16 @@ div.rowElem{
 }
 
 div.rowElem i{ font-size: 70% }
+
+
+/*
+* adding
+* style for debug  (Hightlight Error)
+*
+*/
+.red {
+    border: 1px solid red;
+}
+.blue {
+    border:1px solid blue;
+}

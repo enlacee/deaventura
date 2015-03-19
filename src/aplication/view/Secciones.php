@@ -669,28 +669,124 @@ class Secciones {
     public function deportes_cliente() {
         $aventuras = new Aventuras();
         $cliente = new Cliente($_GET['cliente']);
-        $tipo2 = $cliente->__get('_tipo_foto');  ?>
-        <div id="panel_right">
-            <?php $this->right_principal(); ?>
+        $tipo2 = $cliente->__get('_tipo_foto');
+        
+        //echo "<pre>"; print_r($cliente); exit;
+    ?>
+
+        <div class="profile col-md-9 red">
+            
+            <div class="row">
+                <div class="col-md-1 blue">
+                    <div class="me-image">
+                        <?php if ($tipo2 == 'F') : ?>
+                            <img src="https://graph.facebook.com/<?php echo $cliente->__get('_idFacebook'); ?>/picture?width=74&height=74" width="74" height="74">
+                        <?php  elseif ($tipo2 == 'C') : ?>
+                            <img src="<?php echo _url_files_users_ . $cliente->__get('_foto'); ?>" width="74" />
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+                <div class="col-md-11 red">
+                    <h1 class="profile-title div-inline"><?php echo $cliente->__get("_nombre").' '.$cliente->__get("_apellidos") ?></h1>
+                    <div class="div-inline me-level"><span>0</span></div>
+                    <div><?php echo $cliente->__get("_describete"); ?></div>
+                </div>
+            </div>
+            
+            
+            
+        <div class="row blue">
+    
+            <div class="col-md-6 block-gray">
+                
+                <h2>Mis Datos:</h2>
+                <ul>
+                    <li>Vivo en Huaraz, Ancash.</li>
+                    <li>Practico Deportes de Aventuras desde el 2001.</li>
+                    <li>Parte del DeAventura desde Mayo 2014.</li>
+                </ul>
+                
+
+                
+
+                
+
+
+                <h3>Deportes Favoritos:</h3>
+
+                <span class="btn btn-lg">Escalada</span>
+                <span class="btn btn-lg">Trekking</span>
+                <span class="btn btn-lg">Ciclismo</span>
+                
+                
+
+                <h3>Equipo que utilizo:</h3>
+
+                <div class="btn">Equipo de Escalada</div>
+                <div class="btn">Equipo de montaña</div>
+
+                <h3>Actividad:</h3>
+                <div class="btn">12 Destinos/Rutas</div>
+                <div class="btn">2 Aventuras</div>
+                <div class="btn">3 Salidas Grupales</div>
+                <div class="btn">0 Eventos Competitivos</div>
+                
+                
+            </div>
+            
+            <div class="col-md-6 ">
+                MAPA
+            </div>
+            
+            adssd
         </div>
+
+            <div class="row">
+        
+                    
+                    <?php $aventuras->listAventuras($_GET['cliente'], "cliente"); ?>
+            </div>
+            
+            
+        </div>
+        
+        
+
+        
+        
+        
+        
+        
+        <div class="profile-social col-md-3 blue">
+            <div id="panel_right" style="width: initial;">
+            <?php $this->right_principal(); ?>
+            </div>
+        </div>
+        
+
+        
+        
+
+        
+        <!--
         <section id="seccion-right">
-               <section id="ultimas-aventuras">
-                <div class="titulo">
-                    <?php include(_includes_."inc.social.php"); ?>
-                </div> 	
-            	</section>
-            	<div id="cuerpo_top">
-            	<div id="foto" style="margin-left:10px;"><?php
-	                if ($tipo2 == 'F') { ?>
-	                    <img src="https://graph.facebook.com/<?php echo $cliente->__get('_idFacebook'); ?>/picture?width=100&height=100" width="100" height="100">
-	                <?php } else if ($tipo2 == 'C') { //90 90                 ?>
-	                    <img src="<?php echo _url_files_users_ . $cliente->__get('_foto'); ?>" width="100" />
-	                <?php } ?>
-            	</div>
-            	<h1><?php echo $cliente->__get("_nombre").' '.$cliente->__get("_apellidos") ?></h1>
-        	</div>
+
+            <div id="cuerpo_top">
+                <div id="foto" style="margin-left:10px;">
+                    <?php if ($tipo2 == 'F') { ?>
+                        <img src="https://graph.facebook.com/<?php echo $cliente->__get('_idFacebook'); ?>/picture?width=100&height=100" width="100" height="100">
+                    <?php } else if ($tipo2 == 'C') { //90 90                 ?>
+                        <img src="<?php echo _url_files_users_ . $cliente->__get('_foto'); ?>" width="100" />
+                    <?php } ?>
+                </div>
+                <h1><?php echo $cliente->__get("_nombre").' '.$cliente->__get("_apellidos") ?></h1>
+            </div>
+            
             <?php $aventuras->listAventuras($_GET['cliente'], "cliente"); ?>
-        </section> 
+        </section>-->
+        
+        
         <?php
     }
 

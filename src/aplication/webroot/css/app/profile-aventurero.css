@@ -1,0 +1,99 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18/03/2015, 02:58:00 PM
+    Author     : Bitalik
+*/
+
+/* HELPER */
+.div-inline {
+    display: inline-block;
+}
+
+.color-blue {
+    color: #253f72;
+}
+
+/* Css perfil aventurero */
+.av-profile-top {
+    
+}
+
+.me-image{
+    width: 74px;
+    height: 74px;
+    background-color: yellow;
+
+
+}
+.me-level {
+    background: transparent url('../../imgs/nivel-aventurero.png') no-repeat top;
+    width: 40px;
+    display: inline-block;
+    line-height: 37px;
+    height: 40px;
+    position: absolute;
+    padding: 8px 11px;
+}
+.me-level span{
+  bottom: 9px;
+  position: relative;
+  left: 5px;
+    color:#155bba;
+}
+
+.av-profile-container {
+    padding: 10px;
+    border:1px solid red;
+}
+
+.av-profile-body {
+    
+}
+.av-profile-footer {
+    
+}
+
+#window.aventurero #pagina #cuerpo #panel_right{
+    /*border: 1px solid purple;
+    margin: 0;
+    width:none;
+    float: right;*/
+}
+
+#window.aventurero #pagina {
+    background: transparent url('../../imgs/catalogo/surf_bg.jpg') no-repeat top center;
+}
+
+#window.aventurero #pagina #cuerpo {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.profile-social #panel_right {
+    width: initial;
+  margin: 0;
+}
+.profile {
+    
+}
+.profile .col-md-1,.profile .col-md-11 {
+    margin: 0;
+    padding: 0;
+}
+
+.block-gray {
+
+    background-color: #FFF;
+    border: 1px solid #DDD;
+}
+
+.profile-title {
+    color:#253f72;
+}
+
+.aventurero, h2 ,h3 {
+    color:#253f72;
+}
