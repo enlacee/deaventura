@@ -25,7 +25,7 @@ function App (fbAppId) {
     this.initAppFacebook = function() {
         createDivFb();
         //initializing API
-        window.fbAsyncInit = function() {
+        window.fbAsyncInit = function() { console.log('INIT FB');
             FB.init({
                 appId: self.getAppIdFacebook(),
                 status: true,
@@ -58,3 +58,80 @@ function App (fbAppId) {
  * Init App
  */
 var App = new App('244715988912141');
+
+
+
+/**
+ * function to custom TEST
+ */
+function login() {
+
+    LodingAnimate();
+
+    FB.login(function(response) {
+
+        if (response.status == 'connected') {
+
+            AjaxResponse();
+
+        } else {
+
+            alert("No se pudo identificar al usuario");
+
+            ResetAnimate();
+
+        }
+
+    }, {
+
+        scope: 'email,publish_stream'
+
+    });
+
+    //AjaxResponse();
+
+}
+
+
+
+function AjaxResponse() {
+
+    var myData = 'connect=1'; //For demo, we will pass a post variable, Check process_facebook.php
+
+    jQuery.ajax({
+
+        type: "POST",
+
+        url: "validateUser.php",
+
+        dataType: "html",
+
+        data: myData,
+
+        success: function(response) {
+
+            $("#welcome_b").html(response); //Result
+
+            //$(response).insertBefore('#welcome_b');
+
+            //window.location.reload();
+            //console.log('response', response);
+            if (response == 'false') {
+                var message = "La applicación requiere datos basicos : (email, fecha de cumpleaños) \n"
+                    + "Verifique su cuenta de Facebook, para poder acceder.";
+                alert(message);
+            } else {
+                window.location.replace("/cuenta.php?cuenta=bienvenido");
+            }
+
+        },
+
+        error: function(xhr, ajaxOptions, thrownError) {
+
+            $("#welcome_b").html(thrownError); //Error
+
+        }
+
+    });
+
+}

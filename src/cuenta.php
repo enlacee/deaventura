@@ -1,6 +1,6 @@
 <?php
 include ('inc.aplication_top.php');
-include(_includes_ . "inc.header.php");
+//include(_includes_ . "inc.header.php");
 
 
 if (!$cuenta->getLogeado()) {
@@ -18,7 +18,47 @@ if (!$cuenta->getLogeado()) {
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1"/>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="content-language" content="es"/>
+        <title><?php echo $_GET["titulo"] . ' - ' . NOMBRE_SITIO ?></title>
+        <meta name="description" content="<?php echo $descripcion ?>" />
+        <meta name="language" content="spanish" />
+        <meta name="country" content="PE, Perú" /> 
+
+        <link rel="shortcut icon" href="<?php echo _imgs_ ?>/favicon_deaventura.png" />
+        <link href="<?php echo _imgs_ . 'facebook/' . $image_face ?>" rel="image_src" />
+        <link href="<?php echo _url_ ?>aplication/webroot/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo _url_ ?>aplication/webroot/css/core.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo _url_ ?>aplication/webroot/css/app/profile-aventurero.css" rel="stylesheet" type="text/css" />
+        <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,700,700italic&subset=latin,greek,latin-ext" rel="stylesheet" type="text/css" />
+        <!--[if lt IE 9]><link href="<?php echo _url_ ?>aplication/webroot/css/ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+        
+        
+        <script src="<?php echo _url_ ?>aplication/webroot/js/modernizr.custom.43235.js"></script>
+        <script src="<?php echo _url_ ?>aplication/webroot/plugins/jquery/jquery-1.8.2.min.js" type="text/javascript"></script>
+        <script src="<?php echo _url_ ?>aplication/webroot/plugins/jquery/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+        
+        <script type="text/javascript">
+        //<![CDATA[
+        var URLS = {siteUrl : '<?php echo _url_ ?>'}    //]]>
+        </script>
+        <!-- [if lt IE 9]
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js" > </script>
+        <![endif] -->
+    
+        <script src="<?php echo _url_ ?>aplication/webroot/js/app.js" type="text/javascript" ></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                App.initAppFacebook();
+            });
+        </script>
+    </head>
 <body>
+    <div id="fb-root"></div>
     <div id="window">
         <div id="pagina">
             <?php include (_includes_ . "inc.top.php"); ?>

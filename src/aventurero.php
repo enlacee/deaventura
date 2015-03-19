@@ -20,21 +20,26 @@ $secciones = new Secciones($cuenta, new Deporte());
         <link href="<?php echo _url_ ?>aplication/webroot/css/app/profile-aventurero.css" rel="stylesheet" type="text/css" />
         <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,700,700italic&subset=latin,greek,latin-ext" rel="stylesheet" type="text/css" />
         <!--[if lt IE 9]><link href="<?php echo _url_ ?>aplication/webroot/css/ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+        
+        
+        <script src="<?php echo _url_ ?>aplication/webroot/js/modernizr.custom.43235.js"></script>
+        <script src="<?php echo _url_ ?>aplication/webroot/plugins/jquery/jquery-1.8.2.min.js" type="text/javascript"></script>
+        <script src="<?php echo _url_ ?>aplication/webroot/plugins/jquery/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+        
         <script type="text/javascript">
         //<![CDATA[
         var URLS = {siteUrl : '<?php echo _url_ ?>'}    //]]>
         </script>
-
         <!-- [if lt IE 9]
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js" > </script>
         <![endif] -->
     
-        <script src="<?php echo _url_ ?>aplication/webroot/plugins/jquery/jquery-1.8.2.min.js" type="text/javascript"></script>
-        <script src="<?php echo _url_ ?>aplication/webroot/plugins/jquery/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
-            <script type="text/javascript">
-        App.initAppFacebook();
-    </script>
-        <script src="<?php echo _url_ ?>aplication/webroot/js/js.js" type="text/javascript" ></script>
+        <script src="<?php echo _url_ ?>aplication/webroot/js/app.js" type="text/javascript" ></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                App.initAppFacebook();
+            });
+        </script>
     </head>
 <body>
     <div id="fb-root"></div>
@@ -93,13 +98,12 @@ $secciones = new Secciones($cuenta, new Deporte());
     </div>
     
 
-    <script src="http://assets.pinterest.com/js/pinit.js"></script>
-    <!-- Place this tag in your head or just before your close body tag. -->
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
         {lang: 'es-419'}
     </script>
     <?php
-    include (_includes_ . "inc.bottom.php");
+    //include (_includes_ . "inc.bottom.php");
     ?>
+    <script type="text/javascript" src="<?php echo _url_ ?>aplication/webroot/js/bootstrap.min.js"></script>
 </body>
 </html>

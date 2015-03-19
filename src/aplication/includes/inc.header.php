@@ -36,11 +36,8 @@
         <script src="<?php echo _url_ ?>aplication/webroot/plugins/jquery/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
 
         
-        <script type="text/javascript">
-        //<![CDATA[
-        var URLS = {
-                    siteUrl : '<?php echo _url_ ?>', 
-                }    //]]>
+        <script type="text/javascript">//<![CDATA[
+        var URLS = {siteUrl : '<?php echo _url_ ?>'}//]]>
         </script>
            
         <script type="text/javascript" src="<?php echo _url_ ?>aplication/webroot/js/bootstrap.min.js"></script>
