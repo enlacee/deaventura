@@ -411,7 +411,7 @@ class Cuenta extends MainModel {
         }
         
         $listSports = $this->_checkOutDeporteFavorito($listSports, $row['deporte_favorito']);
-        
+
         $includeFile = $this->config()->server->host . 'views/cuenta/mis-datos-cuenta.php';
         if (is_file($includeFile)) {
             include_once $includeFile;
@@ -424,10 +424,10 @@ class Cuenta extends MainModel {
      * @return Array data refactor array
      */
     private function _checkOutDeporteFavorito($listSports, $dataDeporteFavorito) {
-        $df = unserialize($dataDeporteFavorito);
+        $df = unserialize($dataDeporteFavorito);        
         $rs = false;
         if (is_array($listSports) && count($listSports > 0)
-                && !empty($df) && strlen($df > 2)) {
+                && !empty($df) ) {
             
             foreach ($df as $key => $value) {
                 foreach ($listSports as $indice => $valor) {
@@ -439,6 +439,8 @@ class Cuenta extends MainModel {
             }
             
             $rs = $listSports;
+        } else {
+           $rs = $listSports; 
         }
         
         return $rs;
