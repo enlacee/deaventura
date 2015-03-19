@@ -68,16 +68,18 @@ and open the template in the editor.
     background: transparent url('../../imgs/catalogo/surf_bg.jpg') no-repeat top center;
 }
 
-#window.aventurero #pagina #cuerpo {
-    background: rgba(255, 255, 255, 0.9);
-}
 
+
+.profile-social {
+    padding: 0;
+}
 .profile-social #panel_right {
     width: initial;
   margin: 0;
 }
 .profile {
-    
+  padding: 15px 10px 0px 15px;
+  color: black;
 }
 .profile .col-md-1,.profile .col-md-11 {
     margin: 0;
@@ -85,15 +87,175 @@ and open the template in the editor.
 }
 
 .block-gray {
-
+padding: 16px;
     background-color: #FFF;
     border: 1px solid #DDD;
 }
 
 .profile-title {
     color:#253f72;
+  font-size: 29px;
+  line-height: 42px;
+  
 }
 
 .aventurero, h2 ,h3 {
     color:#253f72;
+    font-size: 17px;
+}
+
+.btn-sport-yellow {
+    background-color: #FFF1A6;
+    border: 1px solid #F2CB05;
+    border-radius: 5px;
+    color: #253f72;
+    margin: 0px 0px 5px 0px;
+    padding: 1% 10%;
+}
+.btn-sport-blue {
+    background-color: #E8EDF1;
+    border: 1px solid #90A6B9;
+    border-radius: 5px;
+    color: #253f72;
+    margin: 0px 0px 5px 0px;
+padding:1% 7%
+}
+
+.btn-sport-blue-small {
+    background-color: #E8EDF1;
+    border: 1px solid #90A6B9;
+    border-radius: 5px;
+    color: #253f72;
+    margin: 0px 0px 5px 0px;
+    
+      font-style: italic;
+      padding: 0.5% 4%;
+}
+
+.aventurero .row {
+      margin: 0;
+  padding: 0;
+}
+.aventurero, h2 {
+
+    color:#253f72;
+    font-size: 23px;
+}
+
+.aventurero, h3 {
+    color:#373737;
+    margin: 9px 0px;
+}
+
+.profile ul {
+      list-style: none;
+}
+
+ul.mis-datos li{
+    margin: 0 0 8px 0px;
+  /* border: 1px solid red; */
+  font-style: italic;
+  color: black;
+  font-size: 14px;
+}
+
+.mymody {
+
+    background: rgba(255, 255, 255, 0.9);
+    margin-top: 62px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* style base */
+/*Spaces
+------------------------------------*/
+.margin-left-5 { margin-left: 5px;}
+.margin-right-5 { margin-right: 5px;}
+
+.no-top-space {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.no-bottom-space {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.margin-bottom-5, 
+.margin-bottom-10, 
+.margin-bottom-15, 
+.margin-bottom-20,
+.margin-bottom-25, 
+.margin-bottom-30, 
+.margin-bottom-35, 
+.margin-bottom-40, 
+.margin-bottom-45, 
+.margin-bottom-50, 
+.margin-bottom-55, 
+.margin-bottom-60 { 
+   clear:both;
+}
+.margin-bottom-5  { margin-bottom:5px;}
+.margin-bottom-10 { margin-bottom:10px;} 
+.margin-bottom-15 { margin-bottom:15px;}
+.margin-bottom-20 { margin-bottom:20px;}
+.margin-bottom-25 { margin-bottom:25px;}
+.margin-bottom-30 { margin-bottom:30px;}
+.margin-bottom-35 { margin-bottom:35px;}
+.margin-bottom-40 { margin-bottom:40px;}
+.margin-bottom-45 { margin-bottom:45px;}
+.margin-bottom-50 { margin-bottom:50px;}
+.margin-bottom-55 { margin-bottom:55px;}
+.margin-bottom-60 { margin-bottom:60px;}
+
+@media (max-width: 768px) {
+  .sm-margin-bottom-10 {
+    margin-bottom: 10px;
+  }
+  .sm-margin-bottom-20 {
+    margin-bottom: 20px;
+  }
+  .sm-margin-bottom-30 {
+    margin-bottom: 30px;
+  }
+  .sm-margin-bottom-40 {
+    margin-bottom: 40px;
+  }
+  .sm-margin-bottom-50 {
+    margin-bottom: 50px;
+  }
+  .sm-margin-bottom-60 {
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 992px) {
+  .md-margin-bottom-10 {
+    margin-bottom: 10px;
+  }
+  .md-margin-bottom-20 {
+    margin-bottom: 20px;
+  }
+  .md-margin-bottom-30 {
+    margin-bottom: 30px;
+  }
+  .md-margin-bottom-40 {
+    margin-bottom: 40px;
+  }
+  .md-margin-bottom-50 {
+    margin-bottom: 50px;
+  }
+  .md-margin-bottom-60 {
+    margin-bottom: 60px;
+  }
 }

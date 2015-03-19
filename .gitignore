@@ -31,3 +31,4 @@ error_log
 /docs/design/
 !/docs/design/*.zip
 /src/aplication/webroot/imgs.data/
+/src/webroot/imgs.old/

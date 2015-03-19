@@ -39,7 +39,7 @@ $secciones = new Secciones($cuenta, new Deporte());
         
         <div id="pagina">
             
-            <div id="cuerpo">
+            <div id="cuerpo_" class="container mymody">
                 <?php
 
                 $secciones->deportes_cliente();

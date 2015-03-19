@@ -670,13 +670,12 @@ class Secciones {
         $aventuras = new Aventuras();
         $cliente = new Cliente($_GET['cliente']);
         $tipo2 = $cliente->__get('_tipo_foto');
-        
-        //echo "<pre>"; print_r($cliente); exit;
+
     ?>
 
-        <div class="profile col-md-9 red">
+        <div class="profile col-md-8 col-sm-8 red">
             
-            <div class="row">
+            <div class="row margin-bottom-10">
                 <div class="col-md-1 blue">
                     <div class="me-image">
                         <?php if ($tipo2 == 'F') : ?>
@@ -700,8 +699,8 @@ class Secciones {
     
             <div class="col-md-6 block-gray">
                 
-                <h2>Mis Datos:</h2>
-                <ul>
+                <h2 class="margin-bottom-5">Mis Datos:</h2>
+                <ul class="mis-datos">
                     <li>Vivo en Huaraz, Ancash.</li>
                     <li>Practico Deportes de Aventuras desde el 2001.</li>
                     <li>Parte del DeAventura desde Mayo 2014.</li>
@@ -715,50 +714,66 @@ class Secciones {
 
                 <h3>Deportes Favoritos:</h3>
 
-                <span class="btn btn-lg">Escalada</span>
-                <span class="btn btn-lg">Trekking</span>
-                <span class="btn btn-lg">Ciclismo</span>
+                <span class="btn btn-sport-yellow">Escalada</span>
+                <span class="btn btn-sport-yellow">Trekking</span>
+                <span class="btn btn-sport-yellow">Ciclismo</span>
                 
                 
 
                 <h3>Equipo que utilizo:</h3>
 
-                <div class="btn">Equipo de Escalada</div>
-                <div class="btn">Equipo de montaña</div>
+                <div class="btn btn-sport-blue-small">Equipo de Escalada</div>
+                <div class="btn btn-sport-blue-small">Equipo de montaña</div>
 
                 <h3>Actividad:</h3>
-                <div class="btn">12 Destinos/Rutas</div>
-                <div class="btn">2 Aventuras</div>
-                <div class="btn">3 Salidas Grupales</div>
-                <div class="btn">0 Eventos Competitivos</div>
+                <div class="btn btn-sport-blue">12 Destinos/Rutas</div>
+                <div class="btn btn-sport-blue">2 Aventuras</div>
+                <div class="btn btn-sport-blue">3 Salidas Grupales</div>
+                <div class="btn btn-sport-blue">0 Eventos Competitivos</div>
                 
                 
             </div>
             
-            <div class="col-md-6 ">
+            <div class="col-md-6 block-gray">
                 MAPA
+                
             </div>
             
-            adssd
+            
         </div>
 
             <div class="row">
-        
+        <div class="pnl panel2" id="av327">
+                        <img src="aplication/utilities/timthumb.php?src=aplication/webroot/imgs/catalogo/aventuras_img_usuarios/327_0_1425485185.jpg&amp;h=290&amp;w=415&amp;zc=1">
+                        <div class="fecha_panel">MAR<br><span>04</span></div>
+                        <ul class="social_panel">
+                            <li class="photo">1</li> 
+                        </ul>
+                        <div class="titulo_panel">
+                            <a title="Ver detalle de la aventura" href="3b13270b/aventura-de-canotaje/mi-aventura-01">Mi aventura 01</a><br>
+                            <a title="Ver aventuras de Walter" href="aventurero_5-walter">por Walter</a>
+                        </div>
+                    </div>
+                <div class="pnl panel2" id="av327">
+                        <img src="aplication/utilities/timthumb.php?src=aplication/webroot/imgs/catalogo/aventuras_img_usuarios/327_0_1425485185.jpg&amp;h=290&amp;w=415&amp;zc=1">
+                        <div class="fecha_panel">MAR<br><span>04</span></div>
+                        <ul class="social_panel">
+                            <li class="photo">1</li> 
+                        </ul>
+                        <div class="titulo_panel">
+                            <a title="Ver detalle de la aventura" href="3b13270b/aventura-de-canotaje/mi-aventura-01">Mi aventura 01</a><br>
+                            <a title="Ver aventuras de Walter" href="aventurero_5-walter">por Walter</a>
+                        </div>
+                    </div>
                     
-                    <?php $aventuras->listAventuras($_GET['cliente'], "cliente"); ?>
+                    <?php //$aventuras->listAventuras($_GET['cliente'], "cliente"); ?>
             </div>
             
             
         </div>
         
-        
-
-        
-        
-        
-        
-        
-        <div class="profile-social col-md-3 blue">
+        <!-- Content rigth--->
+        <div class="profile-social col-md-3  col-sm-4 blue">
             <div id="panel_right" style="width: initial;">
             <?php $this->right_principal(); ?>
             </div>
