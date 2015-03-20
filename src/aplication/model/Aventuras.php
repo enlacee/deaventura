@@ -675,6 +675,79 @@ class Aventuras {
             }
     }
 
+    /**
+     * Function just USEFULL In class 'Secciones.php' function 'deportes_cliente'
+     * @param type $id_cliente
+     */
+    public function listAventurasCliente($id_cliente) {
+        
+        $sql = "SELECT id_aventura, id_deporte, nombre_deporte, cant_coment_aventura, cant_likes_aventura, titulo_aventura, fecha_creacion_aventura, nombre_aventuras_archivos, nombre_cliente, id_cliente, url_cliente, nombre_deporte, lugar_aventura 
+                FROM clientes 
+                    INNER JOIN aventuras USING(id_cliente)
+                    INNER JOIN aventuras_archivos USING(id_aventura)
+                    INNER JOIN modalidades USING(id_modalidad)
+                    INNER JOIN deportes USING(id_deporte)
+                    WHERE id_cliente = {$id_cliente}  AND orden_aventuras_archivos = '0' 
+                    AND estado_aventura = 1
+                GROUP BY id_aventura 
+                ORDER BY fecha_creacion_aventura DESC 
+                LIMIT 0,8";
+
+        $queryp = new Consulta($sql);
+        
+        if ($queryp->NumeroRegistros() > 0 ) {
+            while ($rowp = $queryp->VerRegistro()) {
+                $nfecha = explode("-", $rowp['fecha_creacion_aventura']);
+                $file = _url_avfiles_users_ . $rowp["nombre_aventuras_archivos"];
+
+                // URLS
+                $url_aventura = $this->url_Aventura($rowp["nombre_deporte"], $rowp["id_aventura"], $rowp['titulo_aventura']);
+                
+                $clientes = new Clientes();
+                $sql2 = "SELECT COUNT(id_aventuras_archivo) AS cant_images FROM aventuras_archivos WHERE id_aventura = '" . $rowp["id_aventura"] . "'";
+                $query2 = new Consulta($sql2);
+                $rowI = $query2->VerRegistro();
+            ?>
+        <div class="flipwrapper">
+            <article class="pnl" id="av">
+                <div class="front_evento text-center">
+                    <a href="<?php echo $url_aventura ?>">
+                        <img src="<?php echo _url_ ?>aplication/utilities/timthumb.php?src<?php echo $file ?>&h=275&amp;w=275&amp;zc=1" width="275" height="275">
+                        <div class="fecha_panel_evento">
+                            <?php echo Month($rowp['fecha_creacion_aventura']) ?><span><?php echo $nfecha[2]; ?></span>
+                        </div>
+                    </a>
+                    <div class="titulo_panel_evento">                            
+                        <a title="<?php echo ucfirst(strtolower($rowp['titulo_aventura'])) ?>" href="<?php echo ucfirst(strtolower($rowp['titulo_aventura'])) ?>">
+                            <?php echo ucfirst(strtolower($rowp['titulo_aventura'])) ?>
+                        </a>
+                    </div>
+                    <div class="text-size-5">
+                        <b><?php echo $rowp['nombre_cliente'] ?></b> <?php echo !empty($rowp['lugar_aventura']) ? 'en '. $rowp['lugar_aventura'] : '' ?>
+                    </div>
+
+                    <div class="">
+                        <div class="col-md-6">
+                            <div href="<?php echo $url_aventura ?>" class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="g-plusone" data-size="medium" data-href="<?php echo $url_aventura ?>" data-callback="gplusClickHandler" ></div>
+                        </div>                                
+                    </div>
+
+               </div>
+            </article>
+         </div>                        
+        <?php
+            }
+        } else {
+        ?>
+                        <div class="text-center">No se encontraron historias de Aventura</div>
+        <?php
+        }
+        
+    }
+    
     function load_more_content($id, $tipo, $uid) {
         $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT) . PHP_EOL;
         $uid = filter_var(substr($uid, 2), FILTER_SANITIZE_NUMBER_INT) . PHP_EOL;

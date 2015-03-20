@@ -9,7 +9,8 @@
 
 <script type="text/javascript" src="<?php echo _url_ ?>aplication/webroot/js/bootstrap.min.js"></script>
 <script src="<?php echo _url_ ?>aplication/webroot/js/messages.js" type="text/javascript" ></script>
-<!--<script src="<?php echo _url_ ?>aplication/webroot/js/app/my-validation-messsage.js.js" type="text/javascript" ></script>-->
+
+<script src="<?php echo _url_ ?>aplication/webroot/js/app/my-validation-messsage.js.js" type="text/javascript" ></script>
 
 <?php if ($_GET['cuenta'] == 'misdatos') : ?>
     <!-- adding editar datos

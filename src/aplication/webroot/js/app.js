@@ -135,3 +135,9 @@ function AjaxResponse() {
     });
 
 }
+
+function LodingAnimate() {//Show loading Image
+
+    $('<span id="welcome_b"><img src="aplication/webroot/imgs/ajax-loader.gif" /> Conectando...</span>').insertBefore('#login');
+
+}

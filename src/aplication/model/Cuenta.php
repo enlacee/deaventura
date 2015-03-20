@@ -150,6 +150,10 @@ class Cuenta extends MainModel {
                 WHERE id_cliente='" . $this->_cliente->__get("_id") . "' ";
 
         $query = new Consulta($sql);
+        
+        $_SESSION['FLASH'] = array(true, 'Se guardaron tus <strong>datos Personales</strong> correctamente.');
+        
+        return true;;
         // location("cuenta.php?cuenta=misdatos");
     }
     
@@ -168,6 +172,10 @@ class Cuenta extends MainModel {
                 WHERE id_cliente='" . $this->_cliente->__get("_id") . "' ";
 
         $query = new Consulta($sql);
+        
+        $_SESSION['FLASH'] = array(true, 'Se guardaron tus datos <strong>Deporte</strong> correctamente.');
+        
+        return true;
     }
     
     /**
@@ -209,6 +217,10 @@ class Cuenta extends MainModel {
                 $sql = "UPDATE clientes SET image = '{$flag}', tipo_foto_cliente = 'C'                   
                         WHERE id_cliente='" . $this->_cliente->__get("_id") . "' ";
                 $query = new Consulta($sql);
+                
+                $_SESSION['FLASH'] = array(true, 'Se guardo tu <strong>Foto</strong> correctamente.');
+            } else {
+                $_SESSION['FLASH'] = array(false, 'Se se pude guardar imagenes en estos momentos.');
             }
             
         }

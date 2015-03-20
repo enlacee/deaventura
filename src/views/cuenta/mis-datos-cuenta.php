@@ -140,8 +140,8 @@
           action="<?php echo _url_ ?>cuenta.php?cuenta=misdatos" 
           method="post" enctype="multipart/form-data" 
           accept-charset="utf-8" 
-          name="form_datos-tab2" 
-          id="form_datos-tab2" 
+          name="form_datos_tab2" 
+          id="form_datos_tab2" 
           onsubmit="return validateCuentaMisDatosTab2(this)">
         <input type="hidden" value="update-tab2" name="action">
         
@@ -167,7 +167,7 @@
             <fieldset class=" bloque1">
                 <div class='form-group '>
                     <div class="col-md-12">
-                        <label for="deporte_favorito">Mis Deportes de Aventura favoritos son:<span class="mini-letra-color">(opcional)</span></label>
+                        <label id="mi_deporte_favorito" for="deporte_favorito">Mis Deportes de Aventura favoritos son:<span class="mini-letra-color">(opcional)</span></label>
                     </div>
 
                     <div class="col-md-12">
@@ -202,8 +202,8 @@
               action="<?php echo _url_ ?>cuenta.php?cuenta=misdatos" 
               method="post" enctype="multipart/form-data" 
               accept-charset="utf-8" 
-              name="form_datos-tab3" 
-              id="form_datos-tab3" 
+              name="form_datos_tab3" 
+              id="form_datos_tab3" 
               onsubmit="return validateCuentaMisDatosTab3(this)">
                 <input type="hidden" value="update-tab3" name="action">
 

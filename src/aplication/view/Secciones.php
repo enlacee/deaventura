@@ -698,26 +698,41 @@ class Secciones {
     
             <div class="col-md-6">
             <div class="block-gray">
+                <?php if (!empty($cliente->__get("_vivo_en"))
+                            || !empty($cliente->__get("_deporte_desde"))
+                            || !empty($cliente->getFechaOfStarted()) ) :?>
                 <h2 class="margin-bottom-5">Mis Datos:</h2>
                 <ul class="mis-datos">
-                    <li><span class="ico-profile ico-profile-location"></span>Vivo en <?php echo $cliente->__get("_vivo_en"); ?></li>
-                    <li><span class="ico-profile ico-profile-star"></span>Practico Deportes de Aventuras desde el <?php echo $cliente->__get("_deporte_desde"); ?>.</li>
-                    <li><span class="ico-profile ico-profile-compass"></span>Parte del DeAventura desde <?php echo $cliente->getFechaOfStarted() ?></li>
+                    <?php if (!empty($cliente->__get("_vivo_en"))) : ?>
+                        <li><span class="ico-profile ico-profile-location"></span>Vivo en <?php echo $cliente->__get("_vivo_en"); ?></li>
+                    <?php endif; ?>                        
+                    <?php if (!empty($cliente->__get("_deporte_desde"))) : ?>
+                        <li><span class="ico-profile ico-profile-star"></span>Practico Deportes de Aventuras desde el <?php echo $cliente->__get("_deporte_desde"); ?>.</li>
+                    <?php endif; ?>
+                    <?php if (!empty($cliente->getFechaOfStarted())) : ?>
+                        <li><span class="ico-profile ico-profile-compass"></span>Parte del DeAventura desde <?php echo $cliente->getFechaOfStarted() ?></li>
+                    <?php endif; ?>
                 </ul>
-
-                <h3>Deportes Favoritos:</h3>               
+                <?php endif; ?>
+            
                 <?php
                     $dFavorito = $cliente->__get("_deporte_favorito");
                 if (is_array($dFavorito) && count($dFavorito)> 0) : ?>
+                    <h3>Deportes Favoritos:</h3>
                     <?php foreach ($dFavorito as $key => $value) :?>
                         <div class="btn btn-sport-yellow"><span class="ico-sport ico-sport-<?php echo $value['id'] ?>"></span><?php echo strtoupper($value['name']) ?></div>
                     <?php endforeach; ?>
                 <?php endif; ?>                
                 
-
+                <?php if (!empty($cliente->__get('_deporte_equipo_que_utilizo'))) : 
+                $equipo = explode(',', $cliente->__get('_deporte_equipo_que_utilizo')); ?>
                 <h3>Equipo que utilizo:</h3>
-                <div class="btn btn-sport-blue-small">Equipo de Escalada</div>
-                <div class="btn btn-sport-blue-small">Equipo de montaña</div>
+                <?php if (count($equipo > 0)) : ?>
+                <?php foreach ($equipo as $key => $value) : ?>
+                <div class="btn btn-sport-blue-small"><?php echo $value ?></div>                
+                <?php endforeach; ?>
+                <?php endif; ?>
+                <?php endif; ?>
 
                 <h3>Actividad:</h3>
                 <div class="btn btn-sport-blue">12 Destinos/Rutas</div>
@@ -790,68 +805,17 @@ class Secciones {
         </div>
         
         
-        <div class="row_ profile">
+        <div class="row_ profile margin-bottom-30">
             <h2> Aventuras de <?php echo $cliente->__get("_nombre").' '.$cliente->__get("_apellidos") ?></h2>
         </div>
         
         
-<div class="row_">
-
-                
+        <div class="row_ margin-bottom-20">
+            <?php $aventuras->listAventurasCliente($_GET['cliente']); ?> 
+        </div>
     
-    
-            <div class="flipwrapper">
-                <article class="pnl" id="av">
-                    <div class="front_evento text-center">
-                        <a href="http://www.deaventura.pe/3b13270b/aventura-de-canotaje/mi-aventura-01">
-                            <img src="aplication/utilities/timthumb.php?src=aplication/webroot/imgs/catalogo/aventuras_img_usuarios/327_0_1425485185.jpg&amp;h=275&amp;w=275&amp;zc=1">
-                            <div class="fecha_panel_evento">  <span>04</span> MAR</div>
-                            </a><div class="titulo_panel_evento"><a href="http://www.deaventura.pe/3b13270b/aventura-de-canotaje/mi-aventura-01"> </a><a title="Ver detalle de la aventura" href="http://www.deaventura.pe/3b13270b/aventura-de-canotaje/mi-aventura-01">mi aventura 01</a></div>
-                            <div class="text-size-5"><b>Walter</b> en lima lima peru</div>    
-                            
-                            
-                            <div class="">
-                                <div class="g-plusone col-md-6" data-size="medium" data-href="http://www.deaventura.pe/3b13270b/aventura-de-canotaje/mi-aventura-01" data-callback="gplusClickHandler" ></div>
-                                <div class="col-md-6">
-<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>                                    
-<div href="<?php echo $url_aventura ?>" class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
-                                </div>
-                                
-                            </div> 
-                            
-                    
-                        
-                   </div>
-                </article>
-             </div>
-
-                
- 
-            </div>
         
-        
-        
-
-        
-        <!--
-        <section id="seccion-right">
-
-            <div id="cuerpo_top">
-                <div id="foto" style="margin-left:10px;">
-                    <?php if ($tipo2 == 'F') { ?>
-                        <img src="https://graph.facebook.com/<?php echo $cliente->__get('_idFacebook'); ?>/picture?width=100&height=100" width="100" height="100">
-                    <?php } else if ($tipo2 == 'C') { //90 90                 ?>
-                        <img src="<?php echo _url_files_users_ . $cliente->__get('_foto'); ?>" width="100" />
-                    <?php } ?>
-                </div>
-                <h1><?php echo $cliente->__get("_nombre").' '.$cliente->__get("_apellidos") ?></h1>
-            </div>
-            
-            <?php $aventuras->listAventuras($_GET['cliente'], "cliente"); ?>
-        </section>-->
-        
-        
-        <?php
+<?php
     }
 
     public function eventos() {

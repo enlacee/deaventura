@@ -122,6 +122,22 @@ function validateCuentaMisDatosTab1(form) {
 }
 
 function validateCuentaMisDatosTab2(form) {
+    /*var form = form.parentNode.parentNode;
+    console.log('form',form.parentNode.parentNode);
+    **/
+
+ //console.log(form.elements["deporte_favorito[]"]);
+ var data = form.elements["deporte_favorito[]"]; 
+ var contador = 0;
+ for (var i = 0; i<data.length; i++) {
+     if (data[i].checked) {contador++;}
+ }
+ 
+ if (contador > 2) {
+     inlineMsg('mi_deporte_favorito', 'Solo se permite seleccionar 2 Deportes', 4);
+    return false;     
+ }
+
     
 }
 

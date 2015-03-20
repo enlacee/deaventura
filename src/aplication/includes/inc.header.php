@@ -13,7 +13,6 @@
         <link href="<?php echo _imgs_ . 'facebook/' . $image_face ?>" rel="image_src" />
         <link href="<?php echo _url_ ?>aplication/webroot/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo _url_ ?>aplication/webroot/css/core.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo _url_ ?>aplication/webroot/css/message.css" rel="stylesheet" type="text/css" />
         <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,700,700italic&subset=latin,greek,latin-ext" rel="stylesheet" type="text/css" />
         <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'/>
         <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'/>
