@@ -75,6 +75,8 @@
                         var lugares = [
                         ['Cajamarquilla','San Juan de Lurigancho, Lima',-11.969529,-76.986694,27],['Canchacalla','Canchacalla, Lima',-11.916810,-76.533463,35],['Canchaque','Canchaque, Piura',-5.376133,-79.608261,133],['Caral','Lima, Perú',-10.887985,-77.532410,29],['Chinchero','Cuzco, Perú',-13.391028,-72.051140,33],['Cordillera Blanca','Huaraz y Huari, Áncash, Perú',-9.159677,-77.573433,134],['Lomas de Atiquipa','Caravelí, Arequipa',-15.660102,-73.690781,130],['Lunahuana','Lunahuana, Lima, Perú',-13.016957,-76.127426,22],['Machu Picchu','Cuzco, Perú',-13.169154,-72.542915,34],['Pachacamac','Lima, Perú',-12.188703,-76.850166,30],['Platanales de Totoritas','Mala, Cañete, Perú',-12.685083,-76.656227,132],['Santo Domingo de los Olleros','Santo Domingo de los Olleros, Lima',-12.217665,-76.514732,131],['Tingo María','Huanuco, Perú',-9.305021,-76.005035,28]                            ];
 
+
+
                         setMarkers(map, lugares);
 
                         function bindInfoWindow(marker, map, infoWindow, html) {
@@ -115,44 +117,11 @@
     </div>
         
         
-    <div class="row_ profile">
+    <div class="row_ profile">aasas
         <h2> Aventuras de <?php echo $cliente->__get("_nombre").' '.$cliente->__get("_apellidos") ?></h2>
     </div>
         
-        
-<div class="row_">
 
-                
-    
-    
-            <div class="flipwrapper">
-                <article class="pnl" id="av">
-                    <div class="front_evento text-center">
-                        <a href="http://www.deaventura.pe/3b13270b/aventura-de-canotaje/mi-aventura-01">
-                            <img src="aplication/utilities/timthumb.php?src=aplication/webroot/imgs/catalogo/aventuras_img_usuarios/327_0_1425485185.jpg&amp;h=275&amp;w=275&amp;zc=1">
-                            <div class="fecha_panel_evento">  <span>04</span> MAR</div>
-                            </a><div class="titulo_panel_evento"><a href="http://www.deaventura.pe/3b13270b/aventura-de-canotaje/mi-aventura-01"> </a><a title="Ver detalle de la aventura" href="http://www.deaventura.pe/3b13270b/aventura-de-canotaje/mi-aventura-01">mi aventura 01</a></div>
-                            <div class="text-size-5"><b>Walter</b> en lima lima peru</div>    
-                            
-                            
-                            <div class="">
-                                <div class="g-plusone col-md-6" data-size="medium" data-href="http://www.deaventura.pe/3b13270b/aventura-de-canotaje/mi-aventura-01" data-callback="gplusClickHandler" ></div>
-                                <div class="col-md-6">
-<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>                                    
-<div href="<?php echo $url_aventura ?>" class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
-                                </div>
-                                
-                            </div> 
-                            
-                    
-                        
-                   </div>
-                </article>
-             </div>
-
-                
- 
-            </div>
         
         
         

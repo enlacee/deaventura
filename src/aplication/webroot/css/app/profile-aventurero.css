@@ -35,7 +35,6 @@ and open the template in the editor.
 }
 
 .ico-sport {
-    
     display: inline-block;
     height: 24px;
     width: 24px; 
@@ -89,15 +88,11 @@ and open the template in the editor.
 }
 
 /* Css perfil aventurero */
-.av-profile-top {
- 
-}
 
 .me-image{
     width: 74px;
     height: 74px;
     background-color: #FFF1A6;
-
 }
 .me-level {
     background: transparent url('../../imgs/nivel.png') no-repeat left;
@@ -120,36 +115,16 @@ and open the template in the editor.
     border:1px solid red;
 }
 
-.av-profile-body {
-    
-}
-.av-profile-footer {
-    
-}
-
-#window.aventurero #pagina #cuerpo #panel_right{
-    /*border: 1px solid purple;
-    margin: 0;
-    width:none;
-    float: right;*/
-}
-
-#window.aventurero #pagina {
-    background: transparent url('../../imgs/catalogo/surf_bg.jpg') no-repeat top center;
-}
-
-
-
 .profile-social {
     padding: 0;
 }
 .profile-social #panel_right {
     width: initial;
-  margin: 0;
+    margin: 0;
 }
 .profile {
-  padding: 15px 10px 0px 15px;
-  color: black;
+    padding: 15px 10px 0px 15px;
+    color: black;
 }
 .profile .col-md-1,.profile .col-md-11 {
     margin: 0;
@@ -157,19 +132,15 @@ and open the template in the editor.
 }
 
 .block-gray {
-padding: 16px;
+    padding: 16px;
     background-color: #FFF;
     border: 1px solid #DDD;
 }
 
 .profile-title {
     color:#253f72;
-  font-size: 29px;
-  line-height: 42px;
-  
-}
-.profile-body {
-    
+    font-size: 29px;
+    line-height: 42px; 
 }
 
 .profile-body > .col-md-6 {
@@ -212,19 +183,17 @@ padding: 16px;
 }
 
 .aventurero {
-color: black;
-    
+    color: black;
 }
 .aventurero #pagina {
     color:black;
 }
 .aventurero .row {
     /*
-      margin: 0;
-  padding: 0;*/
+    margin: 0;
+    padding: 0;*/
 }
 .aventurero, h2 {
-
     color:#253f72;
     font-size: 23px;
 }
@@ -241,22 +210,20 @@ color: black;
 ul.mis-datos li{
     margin: 0 0 8px 0px;
   /* border: 1px solid red; */
-  font-style: italic;
-  color: black;
-  font-size: 14px;
+    font-style: italic;
+    color: black;
+    font-size: 14px;
 }
 
 .mymody {
-
     background: rgba(255, 255, 255, 0.9);
     margin-top: 62px;
     border: 1px solid #DDD;
 }
 
 @media (min-width: 1200px) {
-    
     .mymody {
-        width: 1236px;
+        width: 1237px;
     }
 }
 
@@ -283,7 +250,11 @@ ul.mis-datos li{
 
 
 
-/* style base */
+/*
+*
+* style base HELPERS
+*
+**/
 /*Spaces
 ------------------------------------*/
 .margin-left-5 { margin-left: 5px;}

@@ -1,7 +1,7 @@
 # deaventura
 
 
-### archivos de configuracion
+## Archivos importantes de configuración
 
 - aplication/inc.config.php
 - .htaccess                         # configuración de url friendly
@@ -14,9 +14,9 @@
 
 ## Configuración en local host de preferencia (MAC  o LINUXS)
 
-## Configuracion Técnica
+### Configuracion Técnica
 
-### Paso 1:
+### Paso 01:
 configurar el virtual host en local,
 
     ### config deaventura.local
@@ -33,27 +33,31 @@ configurar el virtual host en local,
        SetEnv APPLICATION_ENV "development"
     </VirtualHost>
 
-### Paso 2:
+### Paso 02:
 configurar /etc/hosts
     sudo vim /etc/hosts
 
     127.0.0.1       deaventura.local
 
 
-### PASO 3:
+### Paso 03:
 configurar servidor permisos: aplication/utilities/timthumb.php
-    sudo chmod 777 aplication/utilities
+    sudo chmod 777 src/aplication/utilities
+
+configurar permisos para cache:
+    sudo chmod 777 src/aplication/utilities/cache
+
+configurar permisos para imagenes:
+    sudo chmod 777 src/aplication/webroot/imgs
 
 
+## Configuración de Servicios
 
-
-
-## Configuración de API (Facebook)
-
+### API (Facebook) 'configuracion del servicio'
 API FACEBOOK : https://developers.facebook.com
 Generar una cuenta (apps facebook) para obtener:
-AppId : 111111111111111
-AppSecret : !##############!
+    AppId : 111111111111111
+    AppSecret : !##############!
 
 Luego de esto ir Getting Started o a : Dashboard >> Settings >> Website y ingrear tu URL
 O dominio (funciona tambien para localhost)
@@ -61,8 +65,21 @@ en este caso yo en Site URL escribir mi dominio local:
     
     https://deaventura.local/
 
+### comnfiguracion en el proyecto
+
+Archivo de configuración app.js : (aqui configurar el ID de facebook)
+esta configuración aun se esta integrando actualmente en :
+- cuenta.php
+- aventurero.php
+    src/aplication/webroot/js/app.js
+
+Nota: la cuenta facebook actualmente se configuro para este virtual host https://deaventura.local/
+es importante configurar tu virtual host con este dominio local.
+
+
+## API (GoogleMap)
+sin documentación
 
 
 
 
-    http://deaventura.local/cuenta.php?cuenta=misdatos2#

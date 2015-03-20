@@ -681,7 +681,11 @@ class Aventuras {
      */
     public function listAventurasCliente($id_cliente) {
         
-        $sql = "SELECT id_aventura, id_deporte, nombre_deporte, cant_coment_aventura, cant_likes_aventura, titulo_aventura, fecha_creacion_aventura, nombre_aventuras_archivos, nombre_cliente, id_cliente, url_cliente, nombre_deporte, lugar_aventura 
+        $sql = "SELECT id_aventura, id_deporte, nombre_deporte, cant_coment_aventura, cant_likes_aventura, titulo_aventura, fecha_creacion_aventura, nombre_aventuras_archivos, nombre_cliente, id_cliente, url_cliente, nombre_deporte,
+            lugar_aventura,
+            lat_aventura,
+            lng_aventura,
+            id_deporte
                 FROM clientes 
                     INNER JOIN aventuras USING(id_cliente)
                     INNER JOIN aventuras_archivos USING(id_aventura)
@@ -694,7 +698,7 @@ class Aventuras {
                 LIMIT 0,8";
 
         $queryp = new Consulta($sql);
-        
+        $dataJsLugares = '';
         if ($queryp->NumeroRegistros() > 0 ) {
             while ($rowp = $queryp->VerRegistro()) {
                 $nfecha = explode("-", $rowp['fecha_creacion_aventura']);
@@ -702,6 +706,8 @@ class Aventuras {
 
                 // URLS
                 $url_aventura = $this->url_Aventura($rowp["nombre_deporte"], $rowp["id_aventura"], $rowp['titulo_aventura']);
+                //array js
+                $dataJsLugares = $dataJsLugares . '["'. $rowp['titulo_aventura'] .'", '.$rowp['lat_aventura'].', '.$rowp['lng_aventura'].', '.$rowp['id_deporte'].'],';
                 
                 $clientes = new Clientes();
                 $sql2 = "SELECT COUNT(id_aventuras_archivo) AS cant_images FROM aventuras_archivos WHERE id_aventura = '" . $rowp["id_aventura"] . "'";
@@ -740,11 +746,115 @@ class Aventuras {
          </div>                        
         <?php
             }
+            
+
+            $dataJsLugares = substr($dataJsLugares, 0, (strlen($dataJsLugares)-1));
+            
+            
         } else {
         ?>
                         <div class="text-center">No se encontraron historias de Aventura</div>
         <?php
         }
+        
+        ?>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places" type="text/javascript" ></script>
+<script type="text/javascript">
+                            var map;
+                            var infoWindow = new google.maps.InfoWindow;
+                          
+                            directionsDisplay = new google.maps.DirectionsRenderer();
+                            var myOptions = {
+                                zoom: 6,
+                                center: new google.maps.LatLng(-8.841651, -75.940796),
+                                mapTypeId: google.maps.MapTypeId.ROADMAP //Tipo de Mapa
+                            };
+
+                            map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+                            <?php if (!empty($dataJsLugares)) : ?>
+                            var lugares = [<?php echo $dataJsLugares ?>];
+                            <?php else : ?>
+                                var lugares = [];
+                            <?php endif; ?>
+
+
+                            setMarkers(map, lugares);
+
+                            function bindInfoWindow(marker, map, infoWindow, html) {
+                                google.maps.event.addListener(marker, 'click', function() {
+                                    infoWindow.setContent(html);
+                                    infoWindow.open(map, marker);
+                                });
+                            }
+
+                            function setMarkers(map, locations) {
+                                console.log(locations)
+                                var pos = 0;
+                                //var image = new google.maps.MarkerImage('http://www.deaventura.pe/aplication/webroot/imgs/catalogo/thumb_1353683228icon-ciclismo.png');
+                                for (var i = 0; i < locations.length; i++) {
+                                    var arr = locations[i];
+                                    var image = new google.maps.MarkerImage(getIconoDeporte(arr[3]));
+                                    var myLatLng = new google.maps.LatLng(arr[1], arr[2]);
+                                    var marker = new google.maps.Marker({
+                                        position: myLatLng,
+                                        map: map,
+                                        draggable: false, //Para que no se pueda mover
+                                        animation: google.maps.Animation.DROP,
+                                        icon: image,
+                                        title: arr[0],
+                                        zIndex: pos++
+                                    });
+                                    var html = '<b>' + arr[0] + '</b><br/>';
+                                    bindInfoWindow(marker, map, infoWindow, html);
+                                }
+                            }
+
+                            // function get ico map
+                            // link reference : http://www.deaventura.pe/aplication/webroot/imgs/catalogo/thumb_1353683228icon-ciclismo.png
+                            function getIconoDeporte(id_deporte) {
+                                console.log(id_deporte);
+                                var url = 'http://www.deaventura.pe/aplication/webroot/imgs/catalogo/';
+                                var id_deporte = parseInt(id_deporte);
+                                if (id_deporte === 1) { alert("hi");
+                                    url = url + 'andinismo.png';
+                                } else if( id_deporte == 2) {
+                                   url = url + '4x4_hover.png';
+                                } else if(id_deporte == 3) {
+                                   url = url + 'thumb_1353683194icon-buceo.png';
+                                } else if(id_deporte == 4) {
+                                   url = url + 'puenting_hover.png';
+                                } else if(id_deporte == 5) {
+                                   url = url + 'thumb_1353683220icon-canotaje.png';
+                                } else if(id_deporte == 6) {
+                                   url = url + 'thumb_1353683228icon-ciclismo.png';
+                                } else if(id_deporte == 7) {
+                                   url = url + 'thumb_1353683238icon-escala.png';
+                                } else if(id_deporte == 8) {
+                                   url = url + 'thumb_1353683248icon-parapente.png';
+                                } else if(id_deporte == 9) {
+                                   url = url + 'sandboard_hover.png';
+                                } else if(id_deporte == 10) {
+                                   url = url + 'sandboard_hover.png';
+                                } else if(id_deporte == 11) {
+                                   url = url + 'thumb_1353683262icon-surf.png';
+                                } else if(id_deporte == 12) {
+                                   url = url + 'trekking_hover.png';
+                                } else if(id_deporte == 13) {
+                                   url = url + 'thumb_1353683194icon-buceo.png';
+                                } else if(id_deporte == 14) {
+                                   url = url + 'thumb_1353683338icon-triatlon.png';
+                                } else if(id_deporte == 15) {
+                                   url = url + 'otros-deportes.png';
+                                }
+                                
+                                return url;
+                            }
+            </script>
+        <?php
+ 
         
     }
     

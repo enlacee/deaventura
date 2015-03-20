@@ -16,7 +16,7 @@ error_log
 
 #/src/aplication/utilities/Libs.php
 # FILES
-#/src/aplication/utilities/cache/
+/src/aplication/utilities/cache/
 /src/aplication/utilities/upload_img/
 # IMAGES
 /src/aplication/webroot/imgs/catalogo/*
