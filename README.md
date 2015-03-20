@@ -42,12 +42,15 @@ configurar /etc/hosts
 
 ### Paso 03:
 configurar servidor permisos: aplication/utilities/timthumb.php
+
     sudo chmod 777 src/aplication/utilities
 
 configurar permisos para cache:
+
     sudo chmod 777 src/aplication/utilities/cache
 
 configurar permisos para imagenes:
+
     sudo chmod 777 src/aplication/webroot/imgs
 
 
@@ -56,6 +59,7 @@ configurar permisos para imagenes:
 ### API (Facebook) 'configuracion del servicio'
 API FACEBOOK : https://developers.facebook.com
 Generar una cuenta (apps facebook) para obtener:
+
     AppId : 111111111111111
     AppSecret : !##############!
 
@@ -69,8 +73,10 @@ en este caso yo en Site URL escribir mi dominio local:
 
 Archivo de configuración app.js : (aqui configurar el ID de facebook)
 esta configuración aun se esta integrando actualmente en :
+
 - cuenta.php
 - aventurero.php
+
     src/aplication/webroot/js/app.js
 
 Nota: la cuenta facebook actualmente se configuro para este virtual host https://deaventura.local/
