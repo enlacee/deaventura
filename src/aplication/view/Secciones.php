@@ -747,11 +747,11 @@ class Secciones {
                 
                 
             </div>
-            <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places" type="text/javascript" ></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places" type="text/javascript" ></script>
 <script type="text/javascript">
                             var map;
                             var infoWindow = new google.maps.InfoWindow;
-
+                          
                             directionsDisplay = new google.maps.DirectionsRenderer();
                             var myOptions = {
                                 zoom: 6,
@@ -763,7 +763,7 @@ class Secciones {
 
 
                             var lugares = [
-                            ['Cajamarquilla','San Juan de Lurigancho, Lima',-11.969529,-76.986694,27],['Canchacalla','Canchacalla, Lima',-11.916810,-76.533463,35],['Canchaque','Canchaque, Piura',-5.376133,-79.608261,133],['Caral','Lima, Perú',-10.887985,-77.532410,29],['Chinchero','Cuzco, Perú',-13.391028,-72.051140,33],['Cordillera Blanca','Huaraz y Huari, Áncash, Perú',-9.159677,-77.573433,134],['Lomas de Atiquipa','Caravelí, Arequipa',-15.660102,-73.690781,130],['Lunahuana','Lunahuana, Lima, Perú',-13.016957,-76.127426,22],['Machu Picchu','Cuzco, Perú',-13.169154,-72.542915,34],['Pachacamac','Lima, Perú',-12.188703,-76.850166,30],['Platanales de Totoritas','Mala, Cañete, Perú',-12.685083,-76.656227,132],['Santo Domingo de los Olleros','Santo Domingo de los Olleros, Lima',-12.217665,-76.514732,131],['Tingo María','Huanuco, Perú',-9.305021,-76.005035,28]                            ];
+                            ['Cajamarquilla','San Juan de Lurigancho, Lima',-11.969529,-76.986694,3],['Canchacalla','Canchacalla, Lima',-11.916810,-76.533463,5]                           ];
 
                             setMarkers(map, lugares);
 
@@ -777,9 +777,10 @@ class Secciones {
                             function setMarkers(map, locations) {
                                 console.log(locations)
                                 var pos = 0;
-                                var image = new google.maps.MarkerImage('http://www.deaventura.pe/aplication/webroot/imgs/catalogo/thumb_1353683228icon-ciclismo.png');
+                                //var image = new google.maps.MarkerImage('http://www.deaventura.pe/aplication/webroot/imgs/catalogo/thumb_1353683228icon-ciclismo.png');
                                 for (var i = 0; i < locations.length; i++) {
                                     var arr = locations[i];
+                                    var image = new google.maps.MarkerImage(getIconoDeporte(arr[4]));
                                     var myLatLng = new google.maps.LatLng(arr[2], arr[3]);
                                     var marker = new google.maps.Marker({
                                         position: myLatLng,
@@ -795,6 +796,46 @@ class Secciones {
                                 }
                             }
 
+                            // function get ico map
+                            // link reference : http://www.deaventura.pe/aplication/webroot/imgs/catalogo/thumb_1353683228icon-ciclismo.png
+                            function getIconoDeporte(id_deporte) {
+                                console.log(id_deporte);
+                                var url = 'http://www.deaventura.pe/aplication/webroot/imgs/catalogo/';
+                                var id_deporte = parseInt(id_deporte);
+                                if (id_deporte === 1) { alert("hi");
+                                    url = url + 'andinismo.png';
+                                } else if( id_deporte == 2) {
+                                   url = url + '4x4_hover.png';
+                                } else if(id_deporte == 3) {
+                                   url = url + 'thumb_1353683194icon-buceo.png';
+                                } else if(id_deporte == 4) {
+                                   url = url + 'puenting_hover.png';
+                                } else if(id_deporte == 5) {
+                                   url = url + 'thumb_1353683220icon-canotaje.png';
+                                } else if(id_deporte == 6) {
+                                   url = url + 'thumb_1353683228icon-ciclismo.png';
+                                } else if(id_deporte == 7) {
+                                   url = url + 'thumb_1353683238icon-escala.png';
+                                } else if(id_deporte == 8) {
+                                   url = url + 'thumb_1353683248icon-parapente.png';
+                                } else if(id_deporte == 9) {
+                                   url = url + 'sandboard_hover.png';
+                                } else if(id_deporte == 10) {
+                                   url = url + 'sandboard_hover.png';
+                                } else if(id_deporte == 11) {
+                                   url = url + 'thumb_1353683262icon-surf.png';
+                                } else if(id_deporte == 12) {
+                                   url = url + 'trekking_hover.png';
+                                } else if(id_deporte == 13) {
+                                   url = url + 'thumb_1353683194icon-buceo.png';
+                                } else if(id_deporte == 14) {
+                                   url = url + 'thumb_1353683338icon-triatlon.png';
+                                } else if(id_deporte == 15) {
+                                   url = url + 'otros-deportes.png';
+                                }
+                                
+                                return url;
+                            }
             </script>
             
         </div>
