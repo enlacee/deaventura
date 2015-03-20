@@ -1,4 +1,16 @@
 
+<?php if (isset($_SESSION['FLASH'][0]) && $_SESSION['FLASH'][0] == true) : ?>
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <?php echo $_SESSION['FLASH'][1]; unset($_SESSION['FLASH']) ?>
+    </div>
+<?php elseif (isset($_SESSION['FLASH'][0]) && $_SESSION['FLASH'][0] == false) : ?>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <?php echo $_SESSION['FLASH'][1]; unset($_SESSION['FLASH']) ?>
+    </div>
+<?php endif; ?>
+
 <div role="tabpanel" class="">
 
     <div class="titulo-for">
