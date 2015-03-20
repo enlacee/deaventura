@@ -702,24 +702,20 @@ class Secciones {
                 <ul class="mis-datos">
                     <li><span class="ico-profile ico-profile-location"></span>Vivo en <?php echo $cliente->__get("_vivo_en"); ?></li>
                     <li><span class="ico-profile ico-profile-star"></span>Practico Deportes de Aventuras desde el <?php echo $cliente->__get("_deporte_desde"); ?>.</li>
-                    <li><span class="ico-profile ico-profile-compass"></span>Parte del DeAventura desde Mayo 2014.</li>
+                    <li><span class="ico-profile ico-profile-compass"></span>Parte del DeAventura desde <?php echo $cliente->getFechaOfStarted() ?></li>
                 </ul>
 
-                <h3>Deportes Favoritos:</h3>
-               
+                <h3>Deportes Favoritos:</h3>               
                 <?php
                     $dFavorito = $cliente->__get("_deporte_favorito");
                 if (is_array($dFavorito) && count($dFavorito)> 0) : ?>
                     <?php foreach ($dFavorito as $key => $value) :?>
                         <div class="btn btn-sport-yellow"><span class="ico-sport ico-sport-<?php echo $value['id'] ?>"></span><?php echo strtoupper($value['name']) ?></div>
                     <?php endforeach; ?>
-                <?php endif; ?>
-
-                
+                <?php endif; ?>                
                 
 
                 <h3>Equipo que utilizo:</h3>
-
                 <div class="btn btn-sport-blue-small">Equipo de Escalada</div>
                 <div class="btn btn-sport-blue-small">Equipo de montaña</div>
 
