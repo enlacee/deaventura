@@ -693,24 +693,28 @@ class Secciones {
                 </div>
             </div>
             
-            
-            
+
         <div class="row profile-body blue">
     
             <div class="col-md-6">
             <div class="block-gray">
                 <h2 class="margin-bottom-5">Mis Datos:</h2>
                 <ul class="mis-datos">
-                    <li><span class="ico-profile ico-profile-location"></span>Vivo en Huaraz, Ancash.</li>
-                    <li><span class="ico-profile ico-profile-star"></span>Practico Deportes de Aventuras desde el 2001.</li>
+                    <li><span class="ico-profile ico-profile-location"></span>Vivo en <?php echo $cliente->__get("_vivo_en"); ?></li>
+                    <li><span class="ico-profile ico-profile-star"></span>Practico Deportes de Aventuras desde el <?php echo $cliente->__get("_deporte_desde"); ?>.</li>
                     <li><span class="ico-profile ico-profile-compass"></span>Parte del DeAventura desde Mayo 2014.</li>
                 </ul>
 
                 <h3>Deportes Favoritos:</h3>
+               
+                <?php
+                    $dFavorito = $cliente->__get("_deporte_favorito");
+                if (is_array($dFavorito) && count($dFavorito)> 0) : ?>
+                    <?php foreach ($dFavorito as $key => $value) :?>
+                        <div class="btn btn-sport-yellow"><span class="ico-sport ico-sport-<?php echo $value['id'] ?>"></span><?php echo strtoupper($value['name']) ?></div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
 
-                <div class="btn btn-sport-yellow"><span class="ico-sport ico-sport-1"></span>ESACALADA</div>
-                <div class="btn btn-sport-yellow"><span class="ico-sport ico-sport-1"></span>TREKKING</div>
-                <div class="btn btn-sport-yellow"><span class="ico-sport ico-sport-1"></span>CICLISMO</div>
                 
                 
 

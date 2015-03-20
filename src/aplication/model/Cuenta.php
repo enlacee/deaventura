@@ -206,7 +206,7 @@ class Cuenta extends MainModel {
             
             // step 03
             if ($flag) {
-                $sql = "UPDATE clientes SET image = '{$flag}'                  
+                $sql = "UPDATE clientes SET image = '{$flag}', tipo_foto_cliente = 'C'                   
                         WHERE id_cliente='" . $this->_cliente->__get("_id") . "' ";
                 $query = new Consulta($sql);
             }
@@ -398,7 +398,7 @@ class Cuenta extends MainModel {
         $listSports = $cache->get($idCache);
         
         if($listSports == null) {
-            $sql = " SELECT id_deporte, nombre_deporte FROM deportes; ";
+            $sql = " SELECT id_deporte, nombre_deporte FROM deportes WHERE estado_deporte = 1; ";
             $query = new Consulta($sql);
             $listSports = array();
             $cnt = 0;

@@ -16,7 +16,7 @@ class Cliente {
     //adding
     private $_describete;
 
-    public function __construct($id = 0) {
+    public function __construct($id = 0) { 
         $this->_id = $id;
         if ($this->_id > 0) {
 
@@ -37,8 +37,8 @@ class Cliente {
                 $this->_describete  = $row['describete'];
                 $this->_vivo_en     = $row['vivo_en'];
                 $this->_telefono    = $row['telefono'];
-                $this->_deporte_desde    = $row['deporte_desde'];
-                $this->_deporte_favorito = $row['deporte_favorito'];
+                $this->_deporte_desde    = $row['deporte_desde']; 
+                $this->_deporte_favorito = $this->_getDeporteFavorito(unserialize($row['deporte_favorito'])); 
                 $this->_deporte_equipo_que_utilizo = $row['deporte_equipo_que_utilizo'];
                 $this->_nivel = $row['nivel'];
             }
@@ -50,6 +50,51 @@ class Cliente {
                 $this->_agencia = new Agencia($row_agencia["id_agencia"]);
             }
         }
+    }
+    
+    /*
+     * get data filter with soport favorite (from client)
+     */
+    private function _getDeporteFavorito($arrayDeporteFavorito = false) {
+            $array = array();
+            
+            if ($arrayDeporteFavorito != false) { 
+                
+                $sql_agencia = "SELECT id_deporte,nombre_deporte FROM deportes WHERE estado_deporte = 1;";
+                $query_agencia = new Consulta($sql_agencia);
+
+                $dataListDeportes = array();
+                
+                if ($query_agencia->NumeroRegistros() > 0) {
+                    while ($row2 = $query_agencia->VerRegistro()) {
+                        $dataListDeportes[] = array(
+                            'id_deporte' => $row2['id_deporte'],
+                            'nombre_deporte' => $row2['nombre_deporte'],
+                        );
+                    }
+                }
+
+                // FILL DATA
+                foreach ($arrayDeporteFavorito as $key => $value) { // registros base (id deportes)
+                    
+                    foreach ($dataListDeportes as $indice => $valor) {
+                        if ($value == $valor['id_deporte']) {
+                            $array[] = array (
+                                'id' => $value,
+                                'name' => $valor['nombre_deporte']
+                            );
+                            $c++;
+                            break;
+                        }
+                    }
+                }
+                 
+                
+               
+                
+            }
+
+        return $array;
     }
     
     public function __get($atributo) {
